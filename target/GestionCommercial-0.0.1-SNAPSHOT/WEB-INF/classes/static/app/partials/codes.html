@@ -1,0 +1,108 @@
+<div class="view_contents" ng-controller="CodesCtrl">
+<!-- Widget Menu-->
+	<div class="box blue span12">
+		<div class="box-header">
+			<h2>
+				<i class="halflings-icon white white hand-top"></i>
+				<span class="break"></span>Menu
+			</h2>
+		</div>
+		<div class="box-content">
+			<a href="#/clients" class="quick-button span2"> <i class="icon-group"></i>
+				<p>Clients</p> <span class="notification blue">{{countClient}}</span>
+			</a> 
+			<a href="#/client" class="quick-button span2"> <i class="icon-user"></i><i class="icon-plus"></i>
+				<p>Ajouter un client</p> 
+			</a> 
+			<a class="quick-button span2"> <i class="icon-cogs"></i>
+				<p>Type de client</p>
+			</a> 
+			<a href="#/clientsbalaye" class="quick-button span2"> <i class="icon-thumbs-up"></i>
+				<p>Clients balay&eacute;s</p>
+			</a> 
+			<a href="#/clientsnonbalaye" class="quick-button span2"> <i class="icon-thumbs-down"></i>
+				<p>Clients non balay&eacute;s</p>
+			</a>
+			<a href="#/codes" class="quick-button span2"> <i class="icon-barcode"></i>
+				<p>Gestion des codes</p>
+			</a>  
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- END Widget Menu-->	
+
+<div class="row-fluid">
+	<!-- start of formulaire -->
+	<div class="row-fluid sortable ui-sortable">
+		<div class="box span12">
+			<div class="box-header" data-original-title="">
+				<h2>
+					<i class="halflings-icon white edit"></i><span class="break"></span>Ajout des etats
+				</h2>
+			</div>
+			<div class="box-content">
+				<form class="form-horizontal" ng-submit="onInsert()">
+					<fieldset>
+						
+						<div class="form-actions">
+							<button type="submit" class="btn btn-primary">G&eacute;nerer
+							</button>
+							<button ng-click="getPdf()" class="btn btn-primary">Imprimer</button>
+							
+						</div>
+					</fieldset>
+				</form>
+
+			</div>
+		</div>
+		<!--/span-->
+	</div>
+	<!-- end of formulaire -->
+	<!-- start table-->
+	<div class="row-fluid sortable ui-sortable">
+		<div class="box span12">
+			<div class="box-header" data-original-title="">
+				<h2>
+					<i class="halflings-icon white user"></i><span class="break"></span>Liste des etats
+				</h2>
+			</div>
+			<div class="box-content">
+				<div class="box-content">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Libelle</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="code in pageCodes.codes track by $index">
+								<td class="span6 text-center">{{code.idCode}}</td>
+								<td class="span6 text-center">{{code.used}}</td>
+								<td class="center" class="span6"> 
+								<a class="btn btn-info" href="#/etats/{{etat.idEtat}}"> <i
+										class="halflings-icon white edit"></i>
+								</a> <a class="btn btn-danger"  ng-click="onDelete(etat.idEtat)"> <i
+										class="halflings-icon white trash"></i>
+								</a></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="pagination pagination-centered">
+						<ul>
+							<li style="cursor:pointer;" ng-class="{active:$index==pageCourante}"  ng-repeat="p in pages track by $index">
+								<a ng-click="goToPage($index)">{{$index}}</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/span-->
+
+	</div>
+
+	<!-- end table  -->
+</div>
+</div>

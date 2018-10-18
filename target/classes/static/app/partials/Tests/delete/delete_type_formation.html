@@ -1,0 +1,14 @@
+<div ng-controller="DeleteTypeFormationCtrl">
+	<h3>{{title}}</h3>
+	<form ng-submit="deleteTypeFormation()">
+		<table>
+			<tr>
+				<td>Id</td>
+				<td><input type="id" name="id" ng-model="formData.id"></td>
+			</tr>
+		</table>
+		<input type="submit" value="Delete type formation">
+		<hr>
+		{{msg}}
+	</form>
+</div>

@@ -1,0 +1,150 @@
+<div class="modal-header">
+  <h1>Ajouter un utilisateur</h1>
+</div>
+<div ng-controller="UserFormCtrl" class="modal-body">
+	<div class="row-fluid">
+		<!-- start table-->
+		<div class="row-fluid sortable ui-sortable box span12" style="padding:10px" ng-controller="UserFormCtrl">
+				<div class="box span12" style="margin-right: 10px;">
+					<div class="box-header" data-original-title="">
+						<h2>
+							<i class="halflings-icon white edit"></i><span class="break"></span>
+							Ajoter un utilisateur
+						</h2>
+					</div>
+					<div class="box-content">
+						<form class="form-horizontal" ng-submit="onInsert()" novalidate="novalidate" name="formUser">
+									<fieldset>
+										<div class="control-group">
+											<label class="control-label" for="nom" style="color:black;"> Pseudo: </label>
+											<div class="controls">
+												<input type="text" ng-model="inserted.idUser"
+													class="span6 typeahead" id="typeahead" name="idUser"
+													data-provide="typeahead" data-items="4" required="required">
+												<span class="help-block" ng-show="formUser.idUser.$error.required && ( formUser.$submitted)" style="color:red" role="alert">
+													vous devez remplir ce champ
+												</span> 	
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label" for="nom" style="color:black;"> mot de passe: </label>
+											<div class="controls">
+												<input type="password" ng-model="inserted.password"
+													class="span6 typeahead" id="typeahead" name="password"
+													data-provide="typeahead" data-items="4" required="required">
+												<span class="help-block" ng-show="formUser.password.$error.required && ( formUser.$submitted)" style="color:red" role="alert">
+													vous devez remplir ce champ
+												</span>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label" for="nom" style="color:black;"> nom : </label>
+											<div class="controls">
+												<input type="text" ng-model="inserted.nom" name="nom"
+													class="span6 typeahead" id="typeahead"
+													data-provide="typeahead" data-items="4" required="required">
+												<span class="help-block" ng-show="formUser.nom.$error.required && ( formUser.$submitted)" style="color:red" role="alert">
+													vous devez remplir ce champ
+												</span>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label" for="prenom" style="color:black;"> Prenom: </label>
+											<div class="controls">
+												<input type="text" ng-model="inserted.prenom"
+													class="span6 typeahead" id="typeahead" name="prenom"
+													data-provide="typeahead" data-items="4" required="required">
+												<span class="help-block" ng-show="formUser.prenom.$error.required && ( formUser.$submitted)" style="color:red" role="alert">
+													vous devez remplir ce champ
+												</span>
+											</div>
+										</div>
+										<!-- <div class="control-group">
+											<label class="control-label" for="activation" style="color:black;"> activation : </label>
+											<div class="controls">
+												<label class="control-label" for="activation" style="color:black;"> activer : </label>
+												<input type="radio" ng-model="inserted.actived" class="span6 typeahead" id="typeahead"
+													data-provide="typeahead" data-items="4" checked="checked" value="true" ng-checked="true">
+											</div>
+											<div class="controls">
+												<label class="control-label" for="activation" style="color:black;"> desactiver : </label>									
+												<input type="radio" ng-model="inserted.actived" class="span6 typeahead" id="typeahead"
+													data-provide="typeahead" data-items="4" value="false">
+											</div>
+										</div> -->
+										
+										
+										<div class="control-group">
+											<label class="control-label" for="adresse" style="color:black;"> Adresse: </label>
+											<div class="controls">
+												<input type="text" ng-model="inserted.adresse"
+													class="span6 typeahead" id="typeahead" name="adresse"
+													data-provide="typeahead" data-items="4" required="required">
+												<span class="help-block" ng-show="formUser.adresse.$error.required && ( formUser.$submitted)" style="color:red" role="alert">
+													vous devez remplir ce champ
+												</span>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label" for="email" style="color:black;"> Email: </label>
+											<div class="controls">
+												<input type="email" ng-model="inserted.email" name="email"
+													class="span6 typeahead" id="typeahead"
+													data-provide="typeahead" data-items="4" required="required">
+												<span class="help-block" ng-show="formUser.email.$error.required && ( formUser.$submitted)" style="color:red" role="alert">
+													vous devez remplir ce champ
+												</span>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label" for="telephone" style="color:black;"> Telephone: </label>
+											<div class="controls">
+												<input type="text" ng-model="inserted.telephone"
+													class="span6 typeahead" id="typeahead" name="telephone"
+													data-provide="typeahead" data-items="4" required="required">
+												<span class="help-block" ng-show="formUser.telephone.$error.required && ( formUser.$submitted)" style="color:red" role="alert">
+													vous devez remplir ce champ
+												</span>
+												
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label" for="telephone" style="color:black;"> Date embauche: </label>
+											<div class="controls">
+												</div>
+													<input type="text" pattern="\d{1,2}/\d{1,2}/\d{4}" ng-model="inserted.dateEmbauche" class="datepicker" name="date" value="" required="required"/>
+													<span class="help-block" ng-show="formUser.date.$error.required && ( formUser.$submitted)" style="color:red" role="alert">
+														vous devez remplir ce champ
+													</span>
+										</div>
+										<div class="control-group">
+											<label class="control-label" for="user" style="color:black;">Role: </label>
+											<div class="controls"  >
+												<select class="span6"  ng-model="inserted.role" ng-options="role.role as role.role for role in roles" multiple="multiple"  name="role" required ng-focus="getRoles()">
+												</select>
+												<span class="help-block" ng-show="formUser.role.$error.required && ( formUser.$submitted)" style="color:red" role="alert">
+													vous devez remplir ce champ
+												</span>
+												
+											</div>
+										</div>
+										
+											
+										<div class="form-actions">
+											<button type="submit" class="btn btn-primary">Enregistrer
+											</button>
+											<button type="reset" class="btn">Quitter</button>
+										</div>
+									</fieldset>
+								</form>
+
+					</div>
+			</div>
+		</div>
+		<!-- end table  -->
+	</div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

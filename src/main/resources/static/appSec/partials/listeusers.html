@@ -1,0 +1,91 @@
+<div class="view_contents" ng-controller="UsersCtrl">
+<!-- Widget Menu-->
+	<div class="box blue span12">
+		<div class="box-header">
+			<h2>
+				<i class="halflings-icon white white hand-top"></i>
+				<span class="break"></span>Menu
+			</h2>
+		</div>
+		<div class="box-content">
+			<a href="#/users" class="quick-button span2"> <i class="icon-group"></i>
+				<p>Utilisateurs</p> <span class="notification blue">{{countUser}}</span>
+			</a> 
+			<a href="#/user" class="quick-button span2"> <i class="icon-user"></i><i class="icon-plus"></i>
+				<p>Ajouter un utilisateur</p> 
+			</a> 
+			<a href="#/roles" class="quick-button span2"> <i class="icon-cogs"></i>
+				<p>Role</p>
+			</a>  
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- END Widget Menu-->
+	
+<div class="row-fluid">
+	<!-- start table-->
+	<div class="row-fluid sortable ui-sortable">
+		<div class="box span12">
+			<div class="box-header" data-original-title="">
+				<h2>
+					<i class="halflings-icon white user"></i><span class="break"></span>Liste des users
+				</h2>
+			</div>
+			<div class="box-content">
+				<div class="box-content">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Nom</th>
+								<th>Prenom</th>
+								<th>Adresse</th>
+								<th>Telephone</th>
+								<th>date Embauche</th>
+								<th>Role</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="user in pageUsers.user track by $index">
+								<td class="span6 text-center">
+									<a class="btn btn-info" href="#/commandesbyUser?idUser={{user.idUser}}&size=3
+											&page=0">
+									{{user.idUser}}</a></td>
+								<td class="span6 text-center">{{user.nom}}</td>
+								<td class="span6 text-center">{{user.prenom}}</td>
+								<td class="span6 text-center">{{user.adresse}}</td>
+								<td class="span6 text-center">{{user.telephone}}</td>
+								<td class="span6 text-center">{{user.dateEmbauche}}</td>
+								<td class="span6 text-center"><span ng-repeat="role in user.roles" >{{role.role}} - </span></td>
+								<td class="span6 text-center"></td>
+								<td class="center" class="span6"> 
+								<a class="btn btn-info" href="#/users/{{user.idUser}}"> <i
+										class="halflings-icon white edit"></i>
+								</a> <a class="btn btn-danger"  ng-click="onDelete(user.idUser)"> <i
+										class="halflings-icon white trash"></i>
+								</a></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="pagination pagination-centered">
+						<ul>
+							<li style="cursor:pointer;" ng-class="{active:$index==pageCourante}"  ng-repeat="p in pages track by $index">
+								<a ng-click="goToPage($index)">{{$index}}</a>
+							</li>
+						</ul>
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+		<!--/span-->
+
+	</div>
+	<button ng-click="getPdf()" class="btn btn-primary">Imprimer</button>			
+	
+	<!-- end table  -->
+</div>
+</div>

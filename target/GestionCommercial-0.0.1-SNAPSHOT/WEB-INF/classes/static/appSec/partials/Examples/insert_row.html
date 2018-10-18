@@ -1,0 +1,22 @@
+<div ng-controller="InsertRowCtrl">
+	<h3>{{title}}</h3>
+	<hr>
+	<form ng-submit="saveNewEntity()">
+		<table>
+			<caption>Insert new entity</caption>
+			<tbody>
+				<tr>
+					<td>Title</td>
+					<td><input type="text" name="title" ng-model="formData.title"></td>
+				</tr>
+				<tr>
+					<td>Content</td>
+					<td><input type="text" name="contents" ng-model="formData.contents"></td>
+				</tr>
+			</tbody>
+		</table>
+		<input type="submit" value="Save new entity">
+		<hr>
+		{{msg}}
+	</form>
+</div>

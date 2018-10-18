@@ -1,0 +1,158 @@
+<div class="view_contents" ng-controller="ActionCtrl">
+	<!-- Widget Menu-->
+	<div class="box blue span12">
+		<div class="box-header">
+			<h2>
+				<i class="halflings-icon white white hand-top"></i>
+				<span class="break"></span>Menu
+			</h2>
+		</div>
+		<div class="box-content">
+			<a href="#/articles" class="quick-button span2"> <i class="icon-table"></i>
+				<p>Stock</p> <span class="notification blue">{{pageArticles.nombreArticles}}</span>
+			</a> 
+			<a href="#/article" class="quick-button span2"> <i class="icon-edit"></i>
+				<p>Ajouter un article</p> 
+			</a>
+			<a href="#/prixarticle" class="quick-button span2"> <i class="icon-money"></i>
+				<p>prix d'article</p>
+			</a>  
+			<a href="#/perimes" class="quick-button span2"> <i class="icon-warning-sign"></i>
+				<p>Articles Bientot perim&eacute;s</p>
+			</a> 
+			<a href="#/promotions" class="quick-button span2"> <i class="icon-gift"></i>
+				<p>Promotions</p>
+			</a>
+			<a href="#/defectueuse" class="quick-button span2"> <i class="icon-trash"></i>
+				<p>Defectueur un article</p>
+			</a>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- END Widget Menu-->
+	<div class="row-fluid">
+		<!-- start of formulaire -->
+		<div class="row-fluid sortable ui-sortable">
+			<div class="box blue span12">
+				<div class="row-fluid">
+					<!-- start of formulaire -->
+					<div class="row-fluid sortable ui-sortable">
+						<div class="box span12">
+							<div class="box-header" data-original-title="">
+								<h2>
+									<i class="halflings-icon white edit"></i><span class="break"></span>Modification de l'Action
+									
+								</h2>
+							</div>
+							<div class="box-content">
+								<form class="form-horizontal" ng-submit="onUpdate()">
+									<input type="hidden" name="id" ng-model="action.idAction">
+									<div class="control-group">
+						<label class="control-label" for="libelle" style="color:black;"> Description: </label>
+							<div class="controls">
+								<input type="text" ng-model="action.description"
+									class="span6 typeahead" id="typeahead" name="description"
+									data-provide="typeahead" data-items="4" required="required">
+								<span class="help-block" ng-show="formAction.description.$error.required && ( formAction.$submitted)" style="color:red" role="alert">
+									vous devez remplir ce champ
+								</span>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="libelle" style="color:black;"> Montant: </label>
+							<div class="controls">
+								<input type="text" ng-model="action.montant"
+									class="span6 typeahead" id="typeahead" name="montant"
+									data-provide="typeahead" data-items="4" required="required">
+								<span class="help-block" ng-show="formAction.montant.$error.required && ( formAction.$submitted)" style="color:red" role="alert">
+									vous devez remplir ce champ
+								</span>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="libelle" style="color:black;"> Date Action: </label>
+							<div class="controls">
+								<input type="date" ng-model="action.dateAction"
+									class="span6 typeahead" id="typeahead" name="dateAction"
+									data-provide="typeahead" data-items="4" required="required">
+								<span class="help-block" ng-show="formAction.dateAction.$error.required && ( formAction.$submitted)" style="color:red" role="alert">
+									vous devez remplir ce champ
+								</span>
+							</div>
+						</div>
+						
+						<div class="control-group" >
+							<label class="control-label" for="activation" style="color:black;"> Pay&eacute; : </label>										
+								<div class="controls">
+									<label class="span1 switcha">
+									  <input type="checkbox" ng-model="action.paye"  ng-click="action.facture = ! action.facture  ">
+										  <div class="slidera round"></div>
+									</label>
+									
+								</div>
+								
+								<div class="uploader" id="uniform-fileInput" ng-show="action.facture" ng-hide="!action.facture">
+								
+									<input class="input-file uniform_on" file-model="action.facture" id="fileInput" type="file"  accept="image/*">
+									<span class="filename" style="user-select: none;">aucune facture</span>
+									<span class="action" style="user-select: none;">choisisez une facture</span>
+												
+								 </div>
+						</div>
+						<div class="control-group" >
+							<label class="control-label" for="activation" style="color:black;"> Faire une alerte : </label>										
+								<div class="controls">
+									<label class="span1 switcha">
+									  <input type="checkbox" ng-model="action.alert"  ng-click="showAlert = ! showAlert  ">
+										  <div class="slidera round"></div>
+									</label>
+									
+								</div>
+								<div  ng-show="showAlert" ng-hide="!showAlert">
+									<input type="date" ng-model="action.dateAlert"
+									class="span6 typeahead" id="typeahead" name="dateAlert"
+									data-provide="typeahead" data-items="4" required="required">
+								
+												
+								 </div>
+						</div>
+								
+								<div class="control-group">
+									<label class="control-label" for="user" style="color:black;">V&eacute;hicule: </label>
+										<div class="controls">
+											<select class="span6 typeahead"   ng-model="action.vehicule.immatriculation" ng-options="v.immatriculation as v.immatriculation for v in vehicules" required="required" name="vehicule">
+										</select>
+										<span class="help-block" ng-show="formAction.vehicule.$error.required && ( formAction.$submitted)" style="color:red" role="alert">
+											vous devez remplir ce champ
+										</span>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="vehicule" style="color:black;">Type Action: </label>
+										<div class="controls">
+											<select class="span6 typeahead"   ng-model="action.typeAction.idTypeAction" ng-options="v.idTypeAction as v.libelle for v in typeActions"  required="required" name="typeAction">
+										</select>
+										<span class="help-block" ng-show="formAction.typeAction.$error.required && ( formAction.$submitted)" style="color:red" role="alert">
+											vous devez remplir ce champ
+										</span> 
+									</div>
+								</div>	
+								<div class="form-actions">
+									<button type="submit" class="btn btn-primary">Enregistrer
+									</button>
+									<button type="reset" class="btn">Quitter</button>
+								</div> 
+									
+								</form>
+		
+							</div>
+						</div>
+						<!--/span-->
+		
+					</div>
+		
+				</div>
+			</div>
+		</div>	
+	</div>
+</div>		

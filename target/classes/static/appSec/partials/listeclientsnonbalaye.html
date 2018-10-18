@@ -1,0 +1,122 @@
+<div class="view_contents" ng-controller="ClientsNonBalayeCtrl">
+<!-- Widget Menu-->
+	<div class="box blue span12">
+		<div class="box-header">
+			<h2>
+				<i class="halflings-icon white white hand-top"></i>
+				<span class="break"></span>Menu
+			</h2>
+		</div>
+		<div class="box-content">
+			<a href="#/clients" class="quick-button span2"> <i class="icon-group"></i>
+				<p>Clients</p> <span class="notification blue">{{countClient}}</span>
+			</a> 
+			<a href="#/client" class="quick-button span2"> <i class="icon-user"></i><i class="icon-plus"></i>
+				<p>Ajouter un client</p> 
+			</a> 
+			<a href="#/typesclient" class="quick-button span2"> <i class="icon-cogs"></i>
+				<p>Type de client</p>
+			</a> 
+			<a href="#/clientsbalaye" class="quick-button span2"> <i class="icon-thumbs-up"></i>
+				<p>Clients balay&eacute;s</p>
+			</a> 
+			<a href="#/clientsnonbalaye" class="quick-button span2"> <i class="icon-thumbs-down"></i>
+				<p>Clients non balay&eacute;s</p>
+			</a> 
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- END Widget Menu-->
+<div class="row-fluid">
+	<!-- start table-->
+	<div class="row-fluid sortable ui-sortable">
+		<div class="box span12">
+			<div class="box-header" data-original-title="">
+				<h2>
+					<i class="halflings-icon white user"></i><span class="break"></span>Liste des clients
+				</h2>
+			</div>
+			
+			<div class="box-content">
+				<div class="box-content alerts" ng-show="msg">
+						<div class="alert alert-error">
+							<button type="button" class="close" data-dismiss="alert">X</button>
+							<strong>Oh!!</strong> {{msg}}.
+						</div>
+				</div>
+				<div class="box-content">
+					<form class="form-horizontal" ng-submit="Search()">
+					    <fieldset>
+					    	<legend>Recherche:</legend>
+					    	<div class="control-group">
+								<label class="control-label" for="user" style="color:black;">Chauffeur: </label>
+								<div class="controls"  >
+<!-- 									<select ng-options="user as user.nom for user in users"  -->
+<!--    											ng-model="user" ng-change="loadQuartier()"></select> -->
+									<select name="user" ng-model="find.search" class="span6" ng-change="loadQuartier()">
+										<option  ng-repeat="user in users" value="{{user.idUser}}">{{user.nom}}</option>
+									</select>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="typeahead">Quartier: </label>
+								<div class="controls">
+									<select name="user" ng-model="find.quartier" class="span6" >
+										<option  ng-repeat="quartier  in quartiers track by quartier.idQuartier" value="{{quartier.idQuartier}}">{{quartier.libelle}}</option>
+									</select>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="typeahead">Date : </label>
+								<div class="controls">
+									<select name="date" ng-model="find.date" class="span6" >
+										<option  ng-repeat="date  in dates track by $index" value="{{date}}">{{date | date :  "dd.MM.y"}}</option>
+									</select>
+								</div>
+							</div>
+							<input type="submit" class="btn btn-primary" value="Chercher">
+					    </fieldset>
+					</form>
+				</div>
+				<div class="box-content">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Nom</th>
+								<th>Prenom</th>
+								<th>Adresse</th>
+								<th>Telephone</th>
+								<th>Utilisateur</th>
+								<th>Quartier</th>
+								<th>Type Client</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="client in clients track by $index">
+								<td class="span6 text-center">{{client.cin}}</td>
+								<td class="span6 text-center">{{client.nom}}</td>
+								<td class="span6 text-center">{{client.prenom}}</td>
+								<td class="span6 text-center">{{client.adresse}}</td>
+								<td class="span6 text-center">{{client.telephone}}</td>
+								<td class="span6 text-center">{{client.user.nom}}</td>
+								<td class="span6 text-center">{{client.quartier.libelle}}</td>
+								<td class="span6 text-center">{{client.typeClient.libelle}}</td>
+								<td class="center" class="span6"> 
+								<a href="#"> <i
+										class=" glyphicons-icon down_arrow"></i>
+								</a> </td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<!--/span-->
+
+	</div>
+
+	<!-- end table  -->
+</div>
+</div>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2017-05-13T18:29:52 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="codes" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f59e9c84-eba2-4d06-bb98-0ed7e441e1b4">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<field name="idCode" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="128" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+			<staticText>
+				<reportElement x="0" y="0" width="72" height="128" uuid="d040bbd7-7f96-446c-b38b-a99fea82dffe"/>
+				<text><![CDATA[Code :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="72" y="0" width="69" height="128" uuid="2868e64f-cddb-4de3-bdb9-77d13cdeb816"/>
+				<textFieldExpression><![CDATA[$F{idCode}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="141" y="0" width="69" height="128" uuid="9cb13d91-67ad-4687-8e31-9243c35f4f36"/>
+				<text><![CDATA[Code :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="210" y="0" width="69" height="128" uuid="ce6d7253-8510-4e04-96c9-582c52651cbd"/>
+				<textFieldExpression><![CDATA[$F{idCode}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="279" y="0" width="69" height="128" uuid="6bc958b7-3a6a-4687-9d70-f87f156e2fca"/>
+				<text><![CDATA[Code :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="348" y="0" width="69" height="128" uuid="ec29bf58-c991-4fc3-a528-727e0efc3fd8"/>
+				<textFieldExpression><![CDATA[$F{idCode}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="417" y="0" width="69" height="128" uuid="d3895306-3e3d-4485-bcf7-c14721ab9a55"/>
+				<text><![CDATA[Code :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="486" y="0" width="69" height="128" uuid="8806595c-23eb-4f38-a6bf-b98cdf0d9f72"/>
+				<textFieldExpression><![CDATA[$F{idCode}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

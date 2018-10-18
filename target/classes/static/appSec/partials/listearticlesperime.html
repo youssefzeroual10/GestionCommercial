@@ -1,0 +1,75 @@
+<div class="view_contents" ng-controller="ArticlePerimeCtrl">
+<!-- Widget Menu-->
+	<div class="box blue span12">
+		<div class="box-header">
+			<h2>
+				<i class="halflings-icon white white hand-top"></i>
+				<span class="break"></span>Menu
+			</h2>
+		</div>
+		<div class="box-content">
+			<a href="#/articles" class="quick-button span2"> <i class="icon-table"></i>
+				<p>Stock</p> <span class="notification blue">{{countArticle}}</span>
+			</a> 
+			<a href="#/article" class="quick-button span2"> <i class="icon-edit"></i>
+				<p>Ajouter un article</p> 
+			</a>
+			<a href="#/prixarticle" class="quick-button span2"> <i class="icon-thumbs-up"></i>
+				<p>prix d'article</p>
+			</a>  
+			<a href="#/perimes" class="quick-button span2"> <i class="icon-warning-sign"></i>
+				<p>Articles Bientot perim&eacute;s</p>
+			</a> 
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- END Widget Menu-->
+	
+<div class="row-fluid">
+	<!-- start table-->
+	<div class="row-fluid sortable ui-sortable">
+		<div class="box span12">
+			<div class="box-header" data-original-title="">
+				<h2>
+					<i class="halflings-icon white user"></i><span class="break"></span>Liste des articles bientot perime
+				</h2>
+			</div>
+			<div class="box-content">
+				<div class="box-content">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Article</th>
+								<th>Prix d'achat</th>
+								<th>Date d'expiration</th>
+								<th>Quantite</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="perime in pagePerime.mouvements track by $index">
+								<td class="span6 text-center">{{perime.idMouvement}}</td>
+								<td class="span6 text-center">{{perime.article.designation}}</td>
+								<td class="span6 text-center">{{perime.prixAchat}}</td>
+								<td class="span6 text-center">{{perime.dateExpedition}}</td>
+								<td class="span6 text-center">{{perime.quantite}}</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="pagination pagination-centered">
+						<ul>
+							<li style="cursor:pointer;" ng-class="{active:$index==pageCourante}"  ng-repeat="p in pages track by $index">
+								<a ng-click="goToPage($index)">{{$index}}</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/span-->
+
+	</div>
+
+	<!-- end table  -->
+</div>
+</div>

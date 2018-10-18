@@ -1,0 +1,58 @@
+<div ng-controller="UploadCvCtrl">
+	<h3>{{title}}</h3>
+<<<<<<< HEAD
+	Recherche :<input type="text" ng-model="searchValue" placeholder="Recherche" value="">
+
+=======
+>>>>>>> 8cbbeaaa9beb7a1cfb2cad0765aa2d92d70038aa
+	<table>
+		<thead>
+		<tr>
+			<th>#</th>
+			<th>cv</th>
+			<th>candidat</th>
+			<th>format</th>
+			<th>Comment</th>
+			<th>Action</th>
+		</tr>
+		</thead>
+		<tbody>
+<<<<<<< HEAD
+		<tr ng-repeat="cv in cvs | filter : searchValue track by $index">
+=======
+		<tr ng-repeat="cv in cvs track by $index">
+>>>>>>> 8cbbeaaa9beb7a1cfb2cad0765aa2d92d70038aa
+			<td>{{cv.id}}</td>
+			<td><a href="{{cv.file_path}}">{{cv.name}}</a></td>
+			<td>{{cv.candidat.first_name}} {{cv.candidat.last_name}}</td>
+			<td>{{cv.file_type}}</td>
+			<td>{{cv.comment}}</td>
+			<td><a href="#/cvs/{{cv.id}}">edit</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a ng-click="onDelete(cv.id)" style="cursor: pointer;">remove</a>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">Ajouter une competence pour un candidat :<br>
+				<form>
+					<input type="file" file-model="cv"/><br>
+					Langue : <select ng-model="langue">
+					<option value="Francais">Francais</option>
+					<option value="Englais">Englais</option>
+					<option value="Espagnol">Espagnol</option>
+				</select><br>
+					Candidat :
+					<select ng-model="candidat" >
+						<option  ng-repeat="candidat in candidats " value="{{candidat.id}}">{{candidat.first_name}} {{candidat.last_name}}</option>
+					</select><br>
+					Commentaire :<input type="text" ng-model="comment">
+
+					<button ng-click="onInsert() ">Upload</button>
+					<hr>
+					{{msg}}
+				</form>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+</div>

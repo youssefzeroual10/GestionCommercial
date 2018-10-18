@@ -1,0 +1,179 @@
+<div class="view_contents" ng-controller="CategoriesCtrl">
+	<div class="row-fluid">
+		<!-- start of formulaire -->
+			<div class="row-fluid sortable ui-sortable box span6" style="padding:10px; margin-right:10px;" >
+			<div class="box span12" style="margin-right:10px;">
+				<div class="box-header" data-original-title="">
+					<h2>
+						<i class="halflings-icon white edit"></i><span class="break"></span>Ajout
+						des Categories
+					</h2>
+				</div>
+				<div class="box-content">
+					<form class="form-horizontal" ng-submit="onInsert()" novalidate="novalidate" name="formCategorie">
+						<fieldset>
+							<div class="control-group">
+								<label class="control-label" for="typeahead">Catgorie: </label>
+								<div class="controls">
+									<input type="text" ng-model="inserted.libelle"
+										class="span6 typeahead" id="typeahead" name="libelle"
+										data-provide="typeahead" data-items="4" required="required">
+									<span class="help-block" ng-show="formCategorie.libelle.$error.required && ( formCategorie.$submitted)" style="color:red" role="alert">
+										vous devez remplir ce champ
+									</span>
+								</div>
+							</div>
+							<div class="form-actions">
+								<button type="submit" class="btn btn-primary">Enregistrer
+								</button>
+								<button type="reset" class="btn">Quitter</button>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+			<div ng-show="(pageCategories.categories| filter:idCategorie).length" class="ng-hide" >
+				<div class="box span12" style="margin-right:10px;">
+					<div class="box-header" data-original-title="">
+						<h2>
+							<i class="halflings-icon white user"></i><span class="break"></span>Liste
+							des categories
+						</h2>
+					</div>
+					<div class="box-content">
+						<div class="box-content">
+							<table class="table table-striped table-bordered">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Categorie</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="categorie in pageCategories.categories track by $index">
+										<td class="span6 text-center">{{categorie.idCategorie}}</td>
+										<td class="span6 text-center">{{categorie.libelle}}</td>
+										<td class="center" class="span6"><a class="btn btn-info"
+											href="#/categories/{{categorie.idCategorie}}"> <i
+												class="halflings-icon white edit"></i>
+										</a> <a class="btn btn-danger" ng-click="onDelete(categorie.idCategorie)">
+												<i class="halflings-icon white trash"></i>
+										</a></td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="pagination pagination-centered">
+								<ul>
+									<li style="cursor:pointer;" ng-class="{active:$index==pageCourante}"  ng-repeat="p in pages track by $index">
+										<a ng-click="goToPage($index)">{{$index}}</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<!-- end of formulaire -->
+		
+		<!-- start table-->
+		<div ng-show="(pageCategories.categories| filter:idCategorie).length" class="ng-hide" >
+		<div class="row-fluid sortable ui-sortable box span6" style="padding:10px" ng-controller="SousCategoriesCtrl">
+				<div class="box span12" style="margin-right: 10px;">
+					<div class="box-header" data-original-title="">
+						<h2>
+							<i class="halflings-icon white edit"></i><span class="break"></span>Ajout
+							des Sous Categories
+						</h2>
+					</div>
+					<div class="box-content">
+						<form class="form-horizontal" ng-submit="onInsert()" name="formSousCategorie" novalidate="novalidate">
+							<fieldset>
+								<div class="control-group">
+									<label class="control-label" for="typeahead">Sous Categorie: </label>
+									<div class="controls">
+										<input type="text" ng-model="inserted.libelle"
+											class="span6 typeahead" id="typeahead" name="libelle"
+											data-provide="typeahead" data-items="4" required="required">
+										<span class="help-block" ng-show="formSousCategorie.libelle.$error.required && ( formSousCategorie.$submitted)" style="color:red" role="alert">
+											vous devez remplir ce champ
+										</span>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="typeahead">Categorie: </label>
+									<div class="controls"  >
+										<select name="categorie" ng-model="inserted.categorie" ng-click="getAllCategories()" required="required">
+											<option  ng-repeat="categorie in categories track by categorie.idCategorie" value="{{categorie.idCategorie}}">{{categorie.libelle}}</option>
+										</select>
+									<span class="help-block" ng-show="formSousCategorie.categorie.$error.required && ( formSousCategorie.$submitted)" style="color:red" role="alert">
+										vous devez remplir ce champ
+									</span>
+									</div>
+								</div>
+								<div class="form-actions">
+									<button type="submit" class="btn btn-primary">Enregistrer
+									</button>
+									<button type="reset" class="btn">Quitter</button>
+								</div>
+							</fieldset>
+						</form>
+					</div>
+				
+			</div>
+			<div ng-show="(pageSousCategories.sousCategories| filter:idSousCategorie).length" class="ng-hide" >
+				<div class="box span12">
+					<div class="box-header" data-original-title="">
+						<h2>
+							<i class="halflings-icon white user"></i><span class="break"></span>Liste
+							des sous Categories
+						</h2>
+					</div>
+					<div class="box-content">
+						<div class="box-content">
+							<table class="table  table-striped table-bordered">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Libelle</th>
+										<th>categorie</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="sousCategorie in pageSousCategories.sousCategories track by $index">
+										<td class="span6 text-center">{{sousCategorie.idSousCategorie}}</td>
+										<td class="span6 text-center">{{sousCategorie.libelle}}</td>
+										<td class="span6 text-center">{{sousCategorie.categorie.libelle}}</td>
+										<td class="center" class="span6"><a class="btn btn-info"
+											href="#/sousCategories/{{sousCategorie.idSousCategorie}}"> <i
+												class="halflings-icon white edit"></i>
+										</a> <a class="btn btn-danger"
+											ng-click="onDelete(sousCategorie.idSousCategorie)"> <i
+												class="halflings-icon white trash"></i>
+										</a></td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="pagination pagination-centered">
+								<ul>
+									<li style="cursor:pointer;" ng-class="{active:$index==pageCourante}"  ng-repeat="p in pages track by $index">
+										<a ng-click="goToPage($index)">{{$index}}</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--/span-->
+
+			</div>
+		</div>
+		</div>
+	
+		<!-- end table  -->
+	</div>
+</div>
+

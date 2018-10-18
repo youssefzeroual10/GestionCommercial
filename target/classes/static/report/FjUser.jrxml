@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FjUser" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4c9622b2-b471-4436-a457-4258d6e826a6">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="34"/>
+	<subDataset name="JRDataSource" uuid="fa9059e5-4a56-46a1-86c6-5090cb5ca65b"/>
+	<parameter name="date" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="espece" class="java.lang.Double" isForPrompting="false"/>
+	<parameter name="credit" class="java.lang.Double" isForPrompting="false"/>
+	<parameter name="cheque" class="java.lang.Double" isForPrompting="false"/>
+	<parameter name="user" class="java.lang.String"/>
+	<field name="commande.idCommande" class="java.lang.String"/>
+	<field name="commande.user.nom" class="java.lang.String"/>
+	<field name="commande.client.nom" class="java.lang.String"/>
+	<field name="libelle" class="java.lang.String"/>
+	<field name="commande.montant" class="java.lang.Double"/>
+	<field name="commande.client.typeClient.libelle" class="java.lang.String"/>
+	<variable name="total" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{commande.montant}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<staticText>
+				<reportElement x="134" y="75" width="320" height="20" forecolor="#3300FF" uuid="bb44b4e7-c286-46a1-9d63-68569fd3a66a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tél :0528 99 14 22 / Fax: 0528 99 14 23 -LAAYOUN 70020]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="10" width="555" height="64" forecolor="#0000FF" uuid="13ab1587-54db-40d7-a857-464697306fb8"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="48"/>
+				</textElement>
+				<text><![CDATA[Sté DISTRILAY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="133" y="58" width="337" height="30" forecolor="#3300FF" uuid="f5fe1dec-9d36-4279-8f90-16525f5a60dc"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Av. de la Meque ,Route Smara Imm. Manolo N° 345 BP:52]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement x="117" y="-2" width="247" height="25" uuid="a88ea3db-5f51-4f30-9cd2-007e556e30ad"/>
+				<textElement textAlignment="Center">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[              Fin de la journée :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="295" y="25" width="100" height="20" uuid="69b6b493-6822-4c68-b9ae-59c1a1e751b2"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$P{date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="179" y="25" width="115" height="20" uuid="51790824-62bd-4e38-b2c4-06e16cfc42d2"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date commandes :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="179" y="47" width="115" height="20" uuid="b612e03e-1984-41f3-9ad8-ebff15e4b7aa"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Chauffeur :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="295" y="45" width="100" height="20" uuid="62fa03d6-d561-44c3-aeac-d0bb54db3251"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$P{user}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Opaque" x="0" y="1" width="553" height="20" backcolor="#CCCCFF" uuid="03af3782-d6c8-43a8-be36-7f4729b58782"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="9" y="1" width="87" height="20" uuid="09b51985-4667-44f4-8133-a5e3d4b52be7"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Commande]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="341" y="1" width="85" height="20" uuid="3d47680a-ab67-423c-a968-674bbc2734c9"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Libelle]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="436" y="2" width="100" height="20" uuid="7876e93f-9613-4b70-b40f-1b3e7dd9bc8d"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Montant]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="118" y="0" width="82" height="20" uuid="0d82525f-eec1-47af-98e4-641820c6e2e3"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Client]]></text>
+			</staticText>
+			<line>
+				<reportElement x="215" y="4" width="1" height="16" uuid="68b84512-eb74-42fe-9a7a-e816dfce5dce"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="229" y="2" width="94" height="20" uuid="c9485595-a971-47af-a7e8-9c165027779b"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[      Type Client]]></text>
+			</staticText>
+			<line>
+				<reportElement x="431" y="5" width="1" height="16" uuid="0a49f2e0-08e6-4e95-9d24-4120cc61d14d"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="331" y="5" width="1" height="16" uuid="6b5e6e0f-3b20-4970-9d0f-b831ddfc04f5"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="107" y="5" width="1" height="16" uuid="d47c3e74-ceec-4d4f-840b-f660d6e51061"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<line>
+				<reportElement x="107" y="2" width="1" height="16" uuid="7ba88cc9-3bb6-47d2-b31f-36b127f5cc3c"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="215" y="4" width="1" height="16" uuid="9aebebf1-dc4f-4232-ba2f-5297586d8a2e"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="431" y="2" width="1" height="16" uuid="163c2ba3-7d62-4d60-b502-b7dc8546fab1"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="9" y="0" width="87" height="20" uuid="d12880e3-41f7-4900-9daf-8418dfffb643"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{commande.idCommande}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="119" y="1" width="82" height="20" uuid="4f4144cd-8570-40a1-909c-3dbb06f3e1ff"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{commande.client.nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="341" y="1" width="84" height="20" uuid="5517914a-8377-457f-9ce8-6705bc0165ea"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{libelle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="439" y="1" width="100" height="20" uuid="6e1ba2fa-5398-4daf-8c0d-bc095ba00d22"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{commande.montant}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="231" y="2" width="79" height="20" uuid="622e802c-9d6b-4157-9525-eb36bf0a495e"/>
+				<textFieldExpression><![CDATA[$F{commande.client.typeClient.libelle}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="331" y="2" width="1" height="16" uuid="5f6ffa75-0d3b-4328-8788-abfa92c3a056"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="81" splitType="Stretch">
+			<textField>
+				<reportElement x="234" y="11" width="100" height="59" uuid="de572c7b-8ee7-4681-bd92-760f847225d4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="10" width="100" height="20" uuid="a47d012b-8a4f-472c-99b8-546c6eb04aca"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Espece :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="10" width="100" height="20" uuid="bba465e1-832a-4ef2-a229-5e5811cef118"/>
+				<textFieldExpression><![CDATA[$P{espece}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="30" width="100" height="20" uuid="7ee43e91-0337-4d72-84ce-078a3bc60c32"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Credit :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="30" width="100" height="20" uuid="0e0e957b-cec6-40d3-aeae-778632d26612"/>
+				<textFieldExpression><![CDATA[$P{credit}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="50" width="100" height="20" uuid="427227cf-7ffa-4679-9d8c-a7ca57fdb948"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Cheque :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="50" width="100" height="20" uuid="320cdd21-2ca2-41fd-854d-bfbbbd43bdce"/>
+				<textFieldExpression><![CDATA[$P{cheque}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="210" y="11" width="23" height="59" uuid="3f39aedf-d602-4bff-9625-d2606d8ec6cc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="122" y="10" width="100" height="20" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="b6f7f356-16cb-4917-9080-aa54e74c580e"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="281" y="10" width="80" height="20" uuid="2f01c90b-4909-45c6-906a-a76393198480"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="362" y="10" width="40" height="20" uuid="c3bc5053-9a61-44f8-9e62-0916d20f082f"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

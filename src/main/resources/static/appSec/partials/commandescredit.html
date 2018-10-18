@@ -1,0 +1,116 @@
+<div class="view_contents" ng-controller="CommandesCreditCtrl">
+<!-- Widget Menu-->
+	<div class="box blue span12">
+		<div class="box-header">
+			<h2>
+				<i class="halflings-icon white white hand-top"></i>
+				<span class="break"></span>Menu
+			</h2>
+		</div>
+		<div class="box-content">
+			<a href="#/commandescredit" class="quick-button span2"> <i class="icon-barcode"></i>
+				<p>Commandes en credit</p> <span class="notification blue">{{countClient}}</span>
+			</a> 
+			<a href="#/userscredit" class="quick-button span2"></i><i class="icon-truck"></i>
+				<p>Credits des chauffeurs</p> 
+			</a> 
+			<a href="#/clientscredit" class="quick-button span2"> <i class="icon-group"></i>
+				<p>Credits des clients</p>
+			</a> 
+			<a href="#/paiementscredit" class="quick-button span2"> <i class="icon-money"></i>
+				<p>payer une facture</p>
+			</a> 
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- END Widget Menu-->
+	
+<div class="row-fluid">
+	<!-- start table-->
+	<div class="row-fluid sortable ui-sortable">
+		<div class="box span12">
+			<div class="box-header" data-original-title="">
+				<h2>
+					<i class="halflings-icon white user"></i><span class="break"></span>Liste des commandes 
+				</h2>
+			</div>
+			<div class="box-content alerts" ng-show="msg">
+				<div class="alert alert-error">
+					<button type="button" class="close" data-dismiss="alert">X</button>
+					<strong>Oh!!</strong> {{msg}}.
+				</div>
+			</div>
+			<div class="box-content">
+				<form class="form-horizontal" ng-submit="onSearch()">
+					<div class="control-group">
+						<div class="controls">
+							<input type="text" ng-model="idCommande"
+								class="span6 typeahead" id="typeahead"
+								data-provide="typeahead" data-items="4" placeholder="Recherche">
+							<button type="submit" class="btn btn-primary">Chercher</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="box-content" ng-show="co" >
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Date Commande</th>
+							<th>montant</th>
+						</tr>
+					</thead>
+					<tbody >
+						<tr ng-repeat="commande in pageCommandes.commande track by $index">
+							<td class="span6 text-center">
+								<a class="btn btn-info" href="#/getpaiements?idCommande={{commande.idCommande}}">
+									{{commande.idCommande}}</a>
+							</td>
+							<td class="span6 text-center">{{commande.dateCommande}}</td>
+							<td class="span6 text-center">{{commande.montant}}</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="pagination pagination-centered">
+					<ul>
+						<li style="cursor:pointer;" ng-class="{active:$index==pageCourante}"  ng-repeat="p in pages track by $index">
+							<a ng-click="goToPage($index)">{{$index}}</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="box-content" ng-show="!co">
+				<div ng-show="commande.statuts">
+					<h2><center>la commande a deja un paiement</center></h2>
+				</div>
+				<div ng-show="!commande.statuts">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Date Commande</th>
+								<th>montant</th>
+							</tr>
+						</thead>
+						<tbody >
+							<tr>
+								<td class="span6 text-center">
+									<a class="btn btn-info" href="#/getpaiements?idCommande={{commande.idCommande}}">
+										{{commande.idCommande}}</a>
+								</td>
+								<td class="span6 text-center">{{commande.dateCommande}}</td>
+								<td class="span6 text-center">{{commande.montant}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>	
+			</div>
+		</div>
+	</div>
+		<!--/span-->
+
+	</div>
+
+	<!-- end table  -->
+</div>

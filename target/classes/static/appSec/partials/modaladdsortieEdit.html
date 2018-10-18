@@ -1,0 +1,66 @@
+<div class="modal-header">
+  <h1>Modifier cette vente</h1>
+</div>
+<div ng-controller="SortiesCtrl" class="modal-body">
+	<div class="row-fluid">
+		<!-- start table-->
+		<div class="row-fluid sortable ui-sortable box span12" style="padding:10px" >
+				<div class="box span12" style="margin-right: 10px;">
+					<div class="box-header" data-original-title="">
+						<h2>
+							<i class="halflings-icon white edit"></i><span class="break"></span>
+							modifier une vente
+						</h2>
+					</div>
+						<div class="box-content">
+						<form class="form-horizontal" ng-submit="onUpdate()" novalidate="novalidate" name="formSortie">
+							<input type="hidden" name="id" ng-model="item.idMouvement">
+							<fieldset>
+								
+								<div class="control-group">
+									<label class="control-label" for="user" style="color:black;">Article: </label>
+									<div class="controls"  >
+										<select name="article" class="span6"  ng-init="getPrix(); getArticleEdit()" ng-change="getPrix(); getArticleEdit()"   ng-model="item.article.idArticle" ng-options="article.idArticle as article.designation for article in articles" required="required">
+										</select>
+										<span class="help-block" ng-show="formSortie.article.$error.required && ( formSortie.$submitted)" style="color:red" role="alert">
+											vous devez remplir ce champ
+										</span> 
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="user" style="color:black;">Prix Article: </label>
+									<div class="controls"  >
+										<select class="span6" name="prixVente" ng-model="item.prixVente" ng-options="prix.idPrixArticle as prix.prixVente for prix in prices" required="required">
+										</select>
+										<span class="help-block" ng-show="formSortie.prixVente.$error.required && ( formSortie.$submitted)" style="color:red" role="alert">
+											vous devez remplir ce champ
+										</span> 
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="user" style="color:black;">Quantite: </label>
+									<div class="controls"  >
+										<input type="number" class="span6" name="quantite" ng-model="item.quantite" min="1" max="{{article.quantite}}" required="required"/>
+										<span class="help-block" ng-show="formSortie.quantite.$error.required && ( formSortie.$submitted)" style="color:red" role="alert">
+											vous devez remplir ce champ
+										</span> 
+										
+									</div>
+								</div>
+								<div class="form-actions">
+									<button type="submit" class="btn btn-primary">Enregistrer
+									</button>
+									<button type="reset" class="btn">Quitter</button>
+								</div>
+							</fieldset>
+						</form>
+						</div>
+					</div>
+		</div>
+		<!-- end table  -->
+	</div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

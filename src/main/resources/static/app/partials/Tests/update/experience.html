@@ -1,0 +1,34 @@
+<div ng-controller="UpdateExperienceCtrl">
+	<h3>{{title}}</h3>
+	<hr>
+	<form ng-submit="UpdateExperience()">
+		<table>
+			<caption>Update Experience</caption>
+			<tbody>
+				<tr>
+					<td>Title</td>
+					<td><input type="text" name="title" ng-model="formData.title"></td>
+				</tr>
+				<tr>
+					<td>Date Start</td>
+					<td><input type="text" name="DateStart" ng-model="formData.DateStart"></td>
+				</tr>
+				<tr>
+					<td>Date End</td>
+					<td><input type="text" name="DateEnd" ng-model="formData.DateEnd"></td>
+				</tr>
+				<tr>
+					<td>Poste</td>
+					<td><input type="text" name="Poste" ng-model="formData.Poste"></td>
+				</tr>
+				<tr>
+					<td>local</td>
+					<td><input type="text" name="local" ng-model="formData.local"></td>
+				</tr>
+			</tbody>
+		</table>
+		<input type="submit" value="Update Experience">
+		<hr>
+		{{msg}}
+	</form>
+</div>

@@ -1,0 +1,128 @@
+<div class="view_contents" ng-controller="CommandeEntreeCtrl">
+	<!-- Widget Menu-->
+	<div class="box blue span12">
+		<div class="box-header">
+			<h2>
+				<i class="halflings-icon white white hand-top"></i>
+				<span class="break"></span>Menu
+			</h2>
+		</div>
+		<div class="box-content">
+			<a href="#/commandes" class="quick-button span2"> <i class="glyphicons-icon barcode"></i>
+				<p>Commandes</p>
+			</a> 
+			<a href="#/commandevente" class="quick-button span2"> <i class="glyphicons-icon inbox_out"></i>
+				<p>Les ventes</p> 
+			</a> 
+			<a href="#/commande" class="quick-button span2"> <i class="glyphicons-icon inbox_in"></i>
+				<p>Les Achats</p>
+			</a> 
+			<a href="#/commandeform" class="quick-button span2"> <i class="glyphicons-icon shopping_cart"></i>
+				<p>Acheter</p>
+			</a> 
+			<a href="#/commandesortieform" class="quick-button span2"> <i class="glyphicons-icon coins"></i>
+				<p>Vendre</p>
+			</a> 
+			<a href="#/finDeJournee" class="quick-button span2"> <i class="glyphicons-icon eye_open"></i>
+				<p>fin de la journee</p>
+			</a>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- END Widget Menu-->
+<div class="row-fluid">
+	<!-- start of formulaire -->
+	<div class="row-fluid sortable ui-sortable">
+		<div class="box blue span12">
+			<div class="row-fluid">
+				<!-- start of formulaire -->
+				<div class="row-fluid sortable ui-sortable">
+					<div class="box span12">
+						<div class="box-header" data-original-title="">
+							<h2>
+								<i class="halflings-icon white edit"></i><span class="break"></span>Ajout d'une commande
+								
+							</h2>
+						</div>
+						<div class="box-content">
+							<div class="box-content alerts" ng-show="msg">
+								<div class="alert alert-error">
+									<button type="button" class="close" data-dismiss="alert">X</button>
+									<strong>Oh!!</strong> {{msg}}.
+								</div>
+							</div>
+							<form class="form-horizontal" ng-submit="onInsert()" novalidate="novalidate" name="formEntree">
+								<fieldset>
+									<div class="control-group">
+										<label class="control-label" for="nom" style="color:black;"> Code Commande #: </label>
+										<div class="controls">
+											<input type="text" ng-model="inserted.idCommande" name="commande"
+												class="span6 typeahead" id="typeahead"
+												data-provide="typeahead" data-items="4" required="required">
+											<span class="help-block" ng-show="formEntree.commande.$error.required && ( formEntree.$submitted)" style="color:red" role="alert">
+												vous devez remplir ce champ
+											</span>
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label" for="nom" style="color:black;"> Montant: </label>
+										<div class="controls">
+											<input type="text" ng-model="inserted.montant"
+												class="span6 typeahead" id="typeahead" name="montant"
+												data-provide="typeahead" data-items="4" required="required">
+											<span class="help-block" ng-show="formEntree.montant.$error.required && ( formEntree.$submitted)" style="color:red" role="alert">
+												vous devez remplir ce champ
+											</span>
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label" for="adresse" style="color:black;"> Date Arrive: </label>
+										<div class="controls">
+											<input type="date" ng-model="inserted.dateCommande"
+												class="span6 typeahead" id="typeahead" name="dateCommande"
+												data-provide="typeahead" data-items="4" required="required">
+											<span class="help-block" ng-show="formEntree.dateCommande.$error.required && ( formEntree.$submitted)" style="color:red" role="alert">
+												vous devez remplir ce champ
+											</span>
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label" for="nom" style="color:black;"> Fournisseur: </label>
+										<div class="controls">
+											<select required name="fournisseur" ng-model="inserted.fournisseur" class="span6" >
+												<option  ng-repeat="fournisseur in fournisseurs track by fournisseur.idFournisseur" value="{{fournisseur.idFournisseur}}">{{fournisseur.nom}}</option>
+											</select>
+											<span class="help-block" ng-show="formEntree.fournisseur.$error.required && ( formEntree.$submitted)" style="color:red" role="alert">
+												vous devez remplir ce champ
+											</span> 
+										</div>
+									</div>
+									<div class="control-group" >
+										<label class="control-label" for="typeahead">Bon du Commande: </label>
+										<div class="controls">
+											<div class="uploader" id="uniform-fileInput">
+												<input class="input-file uniform_on" file-model="commande.bonCommande" id="fileInput" type="file"  accept="image/*">
+												<span class="filename" style="user-select: none;">aucun bon commande</span>
+												<span class="action" style="user-select: none;">choisisez le bon de commande</span>
+												
+											 </div>
+										</div>						
+									</div>		
+									<div class="form-actions">
+										<button type="submit" class="btn btn-primary">Enregistrer
+										</button>
+										<button type="reset" class="btn">Quitter</button>
+									</div>
+								</fieldset>
+							</form>
+	
+						</div>
+					</div>
+					<!--/span-->
+	
+				</div>
+	
+			</div>
+		</div>
+	</div>
+</div>			

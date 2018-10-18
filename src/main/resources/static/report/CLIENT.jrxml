@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CLIENT" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="89072872-66a7-4586-8ec3-4dc67e2eccdd">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="cin" class="java.lang.String"/>
+	<field name="nom" class="java.lang.String"/>
+	<field name="quartier.libelle" class="java.lang.String"/>
+	<field name="user.nom" class="java.lang.String"/>
+	<field name="telephone" class="java.lang.String"/>
+	<variable name="variable1" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="-14" width="555" height="70" forecolor="#0000FF" uuid="aa0a8624-3943-445b-a67f-15ad02bbca4d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="48"/>
+				</textElement>
+				<text><![CDATA[Sté DISTRILAY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="115" y="38" width="337" height="30" forecolor="#3300FF" uuid="3baa5602-c77a-4f9f-a805-1d69312b51d7"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Av. de la Meque ,Route Smara Imm. Manolo N° 345 BP:52]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="116" y="58" width="320" height="20" forecolor="#3300FF" uuid="964643a1-6ded-45b0-95ba-6d8452c2c45c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tél :0528 99 14 22 / Fax: 0528 99 14 23 -LAAYOUN 70020]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="53" splitType="Stretch">
+			<staticText>
+				<reportElement x="209" y="7" width="215" height="35" uuid="ce9a2b68-6f1b-4fde-a128-d247a03c8bf0"/>
+				<textElement>
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Liste des clients :]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<line>
+				<reportElement x="15" y="21" width="508" height="1" uuid="c252bcd3-021b-4553-8908-9db7b2947924"/>
+			</line>
+			<rectangle>
+				<reportElement x="0" y="2" width="508" height="20" backcolor="#CCCCFF" uuid="f68d61a0-f860-4f30-b83b-a1113f421221"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="15" y="0" width="44" height="20" uuid="1d695e3d-5775-45d1-9e62-8a3d666c12e5"/>
+				<text><![CDATA[Cin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="107" y="0" width="37" height="20" uuid="cbf4f2f6-73c0-45b4-9b06-58dde25101a3"/>
+				<text><![CDATA[Nom]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="298" y="1" width="47" height="20" uuid="3d37e8dc-b565-4295-bd2d-3452d6748fbe"/>
+				<text><![CDATA[Chauffeur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="402" y="1" width="71" height="20" uuid="7884c9e0-033e-4c87-adbc-562621a5ac28"/>
+				<text><![CDATA[télephone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="193" y="0" width="48" height="20" uuid="f02fa57a-de04-4ddc-a759-1765e862737d"/>
+				<text><![CDATA[Quartier]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="15" y="0" width="44" height="20" uuid="5b9efc01-b569-4266-ae20-5881ac97ba10"/>
+				<textFieldExpression><![CDATA[$F{cin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="108" y="1" width="37" height="20" uuid="920bc03e-2cb0-4568-982c-1abf34661631"/>
+				<textFieldExpression><![CDATA[$F{nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="193" y="0" width="48" height="20" uuid="31eed716-f015-4b5a-8d73-216973c501f5"/>
+				<textFieldExpression><![CDATA[$F{quartier.libelle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="298" y="0" width="47" height="20" uuid="f19d9734-9d19-4a02-a3b8-38f2e942d6cc"/>
+				<textFieldExpression><![CDATA[$F{user.nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="402" y="0" width="71" height="20" uuid="4c64db0d-a594-4516-ac10-f619485abaa3"/>
+				<textFieldExpression><![CDATA[$F{telephone}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="15" y="18" width="508" height="1" uuid="0c71cb52-f3d4-4747-93f2-7177f3293cbb"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="0" width="100" height="20" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="d3d931bc-33ae-488b-844b-8c8945db896a"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="205" y="0" width="80" height="20" uuid="34694204-1e8c-45a5-919b-e6183e9514fe"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="286" y="0" width="40" height="20" uuid="4a9861ac-6cb9-4c60-ab4f-61e0157c0742"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

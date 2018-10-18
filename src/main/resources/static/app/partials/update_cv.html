@@ -1,0 +1,30 @@
+<div ng-controller="UpdateCvCtrl">
+<form ng-submit="onUpdate()">
+	<table>
+		<tbody>
+			<tr>
+				<td>Edit cv # {{ id }} :</td>
+				<td>
+						<input type="hidden" name="id" ng-model="cv.id">
+
+						<input type="file" file-model="cv.fichier"/><br>
+						Langue :
+							<select ng-model="cv.langue">
+								<option value="Francais">Francais</option>
+								<option value="Englais">Englais</option>
+								<option value="Espagnol">Espagnol</option>
+							</select><br>
+						Candidat :
+						<select ng-model="cv.candidat.id"  ng-options="cand.id as cand.first_name+' '+cand.last_name for cand in candidats">
+						</select><br>
+							Commentaire :<input type="text" ng-model="cv.comment">
+						<input type="submit" value="Save">
+						<a href="#/cvs">Cancel</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<hr>
+	{{msg}}
+</form>
+</div>

@@ -1,0 +1,116 @@
+<div class="view_contents" ng-controller="RolesCtrl">
+<!-- Widget Menu-->
+	<div class="box blue span12">
+		<div class="box-header">
+			<h2>
+				<i class="halflings-icon white white hand-top"></i>
+				<span class="break"></span>Menu
+			</h2>
+		</div>
+		<div class="box-content">
+			<a href="#/users" class="quick-button span2"> <i class="icon-group"></i>
+				<p>Utilisateurs</p> <span class="notification blue">{{countUser}}</span>
+			</a> 
+			<a href="#/user" class="quick-button span2"> <i class="icon-user"></i><i class="icon-plus"></i>
+				<p>Ajouter un Utilisateur</p> 
+			</a> 
+			<a href="#/roles"  class="quick-button span2"> <i class="icon-cogs"></i>
+				<p>Role</p>
+			</a> 
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- END Widget Menu-->	
+
+<div class="row-fluid">
+	<!-- start of formulaire -->
+	<div class="row-fluid sortable ui-sortable">
+		<div class="box span12">
+			<div class="box-header" data-original-title="">
+				<h2>
+					<i class="halflings-icon white edit"></i><span class="break"></span>Ajout un type de client
+				</h2>
+			</div>
+			<div class="box-content">
+				<form class="form-horizontal" ng-submit="onInsert()" novalidate="novalidate" name="formRole">
+					<fieldset>
+						<div class="control-group">
+							<label class="control-label" for="typeahead">Role: </label>
+							<div class="controls">
+								<input type="text" ng-model="inserted.role" name="role"
+									class="span6 typeahead" id="typeahead" data-provide="typeahead"
+									data-items="4" required="required">
+								<span class="help-block" ng-show="formRole.role.$error.required && ( formRole.$submitted)" style="color:red" role="alert">
+									vous devez remplir ce champ
+								</span>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="typeahead">Description: </label>
+							<div class="controls">
+								<input type="text" ng-model="inserted.description" name="description"
+									class="span6 typeahead" id="typeahead" data-provide="typeahead"
+									data-items="4">
+							</div>
+						</div>
+						<div class="form-actions">
+							<button type="submit" class="btn btn-primary">Enregistrer
+							</button>
+							<button type="reset" class="btn">Quitter</button>
+						</div>
+					</fieldset>
+				</form>
+
+			</div>
+		</div>
+		<!--/span-->
+	</div>
+	<!-- end of formulaire -->
+	<!-- start table-->
+	<div class="row-fluid sortable ui-sortable">
+		<div class="box span12">
+			<div class="box-header" data-original-title="">
+				<h2>
+					<i class="halflings-icon white user"></i><span class="break"></span>Liste des roles
+				</h2>
+			</div>
+			<div class="box-content">
+				<div class="box-content">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Role</th>
+								<th>Description</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="role in pageRoles.roles track by $index">
+								<td class="span6 text-center">{{role.role}}</td>
+								<td class="span6 text-center">{{role.description}}</td>
+								<td class="center" class="span6"> 
+								<a class="btn btn-info" href="#/roles/{{role.role}}"> <i
+										class="halflings-icon white edit"></i>
+								</a> <a class="btn btn-danger"  ng-click="onDelete(role.role)"> <i
+										class="halflings-icon white trash"></i>
+								</a></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="pagination pagination-centered">
+						<ul>
+							<li style="cursor:pointer;" ng-class="{active:$index==pageCourante}"  ng-repeat="p in pages track by $index">
+								<a ng-click="goToPage($index)">{{$index}}</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/span-->
+
+	</div>
+
+	<!-- end table  -->
+</div>
+</div>

@@ -1,0 +1,35 @@
+<div class="view_contents" ng-controller="typesFormationCtrl">
+	<h3>{{title}}</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Title</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="typeformation in typesformation track by $index">
+				<td>{{typeformation.id}}</td>
+				<td>
+					{{typeformation.title}}
+				</td>
+				<td>
+					<a href="#/types_formation/{{typeformation.id}}">edit</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a ng-click="onDelete(typeformation.id)" style="cursor: pointer;">remove</a>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">Add new typeformation : 
+					<form ng-submit="onInsert()" style="display: inline;">
+						<input type="text" name="title" ng-model="inserted.title">
+						<input type="submit" value="Add" style="width:80px;">
+						<hr>
+						{{msg}}
+					</form> 
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

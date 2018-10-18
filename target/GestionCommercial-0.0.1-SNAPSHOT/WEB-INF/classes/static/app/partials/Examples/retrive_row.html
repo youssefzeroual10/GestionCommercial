@@ -1,0 +1,22 @@
+<div ng-controller="RetriveRowCtrl">
+	<h3>{{title}}</h3>
+	<form ng-submit="LoadEntity()">
+		<table>
+			<tr>
+				<td>Id</td>
+				<td><input type="text" name="title" ng-model="formData.id"></td>
+				<tr>
+					<td>Title</td>
+					<td><input type="text" name="title" readonly value="{{_title}}"></td>
+				</tr>
+				<tr>
+					<td>Content</td>
+					<td><input type="text" name="contents" readonly value="{{_contents}}"></td>
+				</tr>
+			</tr>
+		</table>
+		<input type="submit" value="Load entity">
+		<hr>
+		{{msg}}
+	</form>
+</div>

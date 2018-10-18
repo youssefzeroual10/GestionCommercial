@@ -1,0 +1,125 @@
+<div class="view_contents" ng-controller="ClientFormCtrl">
+	<!-- Widget Menu-->
+	<div class="box blue span12">
+		<div class="box-header">
+			<h2>
+				<i class="halflings-icon white white hand-top"></i>
+				<span class="break"></span>Menu
+			</h2>
+		</div>
+		<div class="box-content">
+			<a href="#/clients" class="quick-button span2"> <i class="icon-group"></i>
+				<p>Clients</p> <span class="notification blue">{{countClient}}</span>
+			</a> 
+			<a href="#/client" class="quick-button span2"> <i class="icon-user"></i><i class="icon-plus"></i>
+				<p>Ajouter un client</p> 
+			</a> 
+			<a href="#/typesclient" class="quick-button span2"> <i class="icon-cogs"></i>
+				<p>Type de client</p>
+			</a> 
+			<a href="#/clientsbalaye" class="quick-button span2"> <i class="icon-thumbs-up"></i>
+				<p>Clients balay&eacute;s</p>
+			</a> 
+			<a href="#/clientsnonbalaye" class="quick-button span2"> <i class="icon-thumbs-down"></i>
+				<p>Clients non balay&eacute;s</p>
+			</a> 
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- END Widget Menu-->
+	<div class="box blue span12">
+		<div class="row-fluid">
+			<!-- start of formulaire -->
+			<div class="row-fluid sortable ui-sortable">
+				<div class="box span12">
+					<div class="box-header" data-original-title="">
+						<h2>
+							<i class="halflings-icon white edit"></i><span class="break"></span>Ajout d'un client
+							
+						</h2>
+					</div>
+					<div class="box-content">
+						<form class="form-horizontal" ng-submit="onInsert()">
+							<fieldset>
+								<div class="control-group">
+									<label class="control-label" for="cin" style="color:black;"> CIN: </label>
+									<div class="controls">
+										<input type="text" ng-model="inserted.cin"
+											class="span6 typeahead" id="typeahead"
+											data-provide="typeahead" data-items="4">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="nom" style="color:black;"> Nom: </label>
+									<div class="controls">
+										<input type="text" ng-model="inserted.nom"
+											class="span6 typeahead" id="typeahead"
+											data-provide="typeahead" data-items="4">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="nom" style="color:black;"> Prenom: </label>
+									<div class="controls">
+										<input type="text" ng-model="inserted.prenom"
+											class="span6 typeahead" id="typeahead"
+											data-provide="typeahead" data-items="4">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="adresse" style="color:black;"> Adresse: </label>
+									<div class="controls">
+										<input type="text" ng-model="inserted.adresse"
+											class="span6 typeahead" id="typeahead"
+											data-provide="typeahead" data-items="4">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="nom" style="color:black;"> Telephone: </label>
+									<div class="controls">
+										<input type="text" ng-model="inserted.telephone"
+											class="span6 typeahead" id="typeahead"
+											data-provide="typeahead" data-items="4">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="user" style="color:black;">Chauffeur: </label>
+									<div class="controls"  >
+										<select name="user" ng-model="inserted.user" class="span6">
+											<option  ng-repeat="user in users" value="{{user.idUser}}">{{user.nom}}</option>
+										</select>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="quartier" style="color:black;">Quartier: </label>
+									<div class="controls"  >
+										<select name="quartier" ng-model="inserted.quartier" class="span6">
+											<option  ng-repeat="quartier in quartiers track by quartier.idQuartier" value="{{quartier.idQuartier}}">{{quartier.libelle}}</option>
+										</select>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="quartier" style="color:black;">Type Client: </label>
+									<div class="controls"  >
+										<select name="typeClient" ng-model="inserted.typeClient" class="span6">
+											<option  ng-repeat="typeClient in typeClients track by typeClient.idTypeClient" value="{{typeClient.idTypeClient}}">{{typeClient.libelle}}</option>
+										</select>
+									</div>
+								</div>
+									
+								<div class="form-actions">
+									<button type="submit" class="btn btn-primary">Enregistrer
+									</button>
+									<button type="reset" class="btn">Quitter</button>
+								</div>
+							</fieldset>
+						</form>
+
+					</div>
+				</div>
+				<!--/span-->
+
+			</div>
+
+		</div>
+	</div>
+</div>		

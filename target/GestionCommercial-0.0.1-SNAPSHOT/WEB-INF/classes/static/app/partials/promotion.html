@@ -1,0 +1,106 @@
+<div class="view_contents" ng-controller="PromotionCtrl">
+	<!-- Widget Menu-->
+	<div class="box blue span12">
+		<div class="box-header">
+			<h2>
+				<i class="halflings-icon white white hand-top"></i>
+				<span class="break"></span>Menu
+			</h2>
+		</div>
+		<div class="box-content">
+			<a href="#/articles" class="quick-button span2"> <i class="icon-table"></i>
+				<p>Stock</p> <span class="notification blue">{{pageArticles.nombreArticles}}</span>
+			</a> 
+			<a href="#/article" class="quick-button span2"> <i class="icon-edit"></i>
+				<p>Ajouter un article</p> 
+			</a>
+			<a href="#/prixarticle" class="quick-button span2"> <i class="icon-money"></i>
+				<p>prix d'article</p>
+			</a>  
+			<a href="#/perimes" class="quick-button span2"> <i class="icon-warning-sign"></i>
+				<p>Articles Bientot perim&eacute;s</p>
+			</a> 
+			<a href="#/promotions" class="quick-button span2"> <i class="icon-gift"></i>
+				<p>Promotions</p>
+			</a>
+			<a href="#/defectueuse" class="quick-button span2"> <i class="icon-trash"></i>
+				<p>Defectueur un article</p>
+			</a>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- END Widget Menu-->
+	<div class="box blue span12">
+		<div class="row-fluid">
+			<!-- start of formulaire -->
+			<div class="row-fluid sortable ui-sortable">
+				<div class="box span12">
+					<div class="box-header" data-original-title="">
+						<h2>
+							<i class="halflings-icon white edit"></i><span class="break"></span>Modification de la taxe
+							
+						</h2>
+					</div>
+					<div class="box-content">
+						<form class="form-horizontal" ng-submit="onUpdate()" novalidate="novalidate" name="formPromotion">
+							<input type="hidden" name="id" ng-model="taxe.idTaxe">
+							<fieldset>
+						<div class="control-group">
+							<label class="control-label" for="typeahead">Libelle: </label>
+							<div class="controls">
+								<input type="text" ng-model="promotion.libelle" name="libelle"
+									class="span6 typeahead" id="typeahead" data-provide="typeahead"
+									data-items="4">
+								<span class="help-block" ng-show="formPromotion.libelle.$error.required && ( formPromotion.$submitted)" style="color:red" role="alert">
+									vous devez remplir ce champ
+								</span>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="typeahead">Article: </label>
+							<div class="controls"  >
+								
+								<span class="help-block" ng-show="formPromotion.article.$error.required && ( formPromotion.$submitted)" style="color:red" role="alert">
+									vous devez remplir ce champ
+								</span>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="typeahead">Quantite min: </label>
+							<div class="controls">
+								<input type="number" ng-model="promotion.qteMin"  name="qteMin"
+									class="span6 typeahead" id="typeahead" data-provide="typeahead"
+									data-items="4">
+								<span class="help-block" ng-show="formPromotion.qteMin.$error.required && ( formPromotion.$submitted)" style="color:red" role="alert">
+									vous devez remplir ce champ
+								</span>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="typeahead">Quantite cadeau: </label>	
+							<div class="controls">
+								<input type="number" ng-model="promotion.qteCadeau" name="qteCadeau"
+									class="span6 typeahead" id="typeahead" data-provide="typeahead"
+									data-items="4">
+								<span class="help-block" ng-show="formPromotion.qteCadeau.$error.required && ( formPromotion.$submitted)" style="color:red" role="alert">
+									vous devez remplir ce champ
+								</span>
+							</div>
+						</div>
+						<div class="form-actions">
+							<button type="submit" class="btn btn-primary">Enregistrer
+							</button>
+							<button type="reset" class="btn">Quitter</button>
+						</div>
+					</fieldset>
+						</form>
+
+					</div>
+				</div>
+				<!--/span-->
+
+			</div>
+
+		</div>
+	</div>
+</div>		

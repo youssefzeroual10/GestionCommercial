@@ -1,0 +1,177 @@
+<div class="view_contents" ng-controller="PromotionsSpecialCtrl">
+<!-- Widget Menu-->
+	<div class="box blue span12">
+		<div class="box-header">
+			<h2>
+				<i class="halflings-icon white white hand-top"></i>
+				<span class="break"></span>Menu
+			</h2>
+		</div>
+		<div class="box-content">
+			<a href="#/articles" class="quick-button span2"> <i class="icon-table"></i>
+				<p>Stock</p> <span class="notification blue">{{pageArticles.nombreArticles}}</span>
+			</a> 
+			<a href="#/article" class="quick-button span2"> <i class="icon-edit"></i>
+				<p>Ajouter un article</p> 
+			</a>
+			<a href="#/prixarticle" class="quick-button span2"> <i class="icon-money"></i>
+				<p>prix d'article</p>
+			</a>  
+			<a href="#/perimes" class="quick-button span2"> <i class="icon-warning-sign"></i>
+				<p>Articles Bientot perim&eacute;s</p>
+			</a> 
+			<a href="#/promotions" class="quick-button span2"> <i class="icon-gift"></i>
+				<p>Promotions</p>
+			</a>
+			<a href="#/defectueuse" class="quick-button span2"> <i class="icon-trash"></i>
+				<p>Defectueur un article</p>
+			</a>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- END Widget Menu-->
+<div class="row-fluid">
+	<!-- start of formulaire -->
+	<div class="row-fluid sortable ui-sortable">
+		<div class="box span12">
+			<div class="box-header" data-original-title="">
+				<h2>
+					<i class="halflings-icon white edit"></i><span class="break"></span>Ajout des Taxes
+				</h2>
+			</div>
+			<div class="box-content">
+				<form class="form-horizontal" ng-submit="onInsert()" novalidate="novalidate" name="formPromotion">
+					<fieldset>
+						<div class="control-group">
+							<label class="control-label" for="typeahead">Libelle: </label>
+							<div class="controls">
+								<input type="text" ng-model="inserted.libelle" name="libelle"
+									class="span6 typeahead" id="typeahead" data-provide="typeahead"
+									data-items="4" required="required">
+								<span class="help-block" ng-show="formPromotion.libelle.$error.required && ( formPromotion.$submitted)" style="color:red" role="alert">
+									vous devez remplir ce champ
+								</span>
+							</div>
+						</div>
+						<div class="control-group">
+						<label class="control-label" for="typeahead">Article: </label>
+						
+							<div class="controls"  >
+							
+								<select name="article" ng-model="inserted.article" ng-click="getAllArticles()" required="required">
+									<option  ng-repeat="article in articles track by article.idArticle" value="{{article.idArticle}}">{{article.designation}}</option>
+								</select>
+								
+								<span class="help-block" ng-show="formPromotion.article.$error.required && ( formPromotion.$submitted)" style="color:red" role="alert">
+									vous devez remplir ce champ
+								</span>
+							</div>
+						</div>
+						<div class="control-group">
+						<label class="control-label" for="typeahead">Client: </label>
+						
+							<div class="controls"  >
+							
+								<select name="article" ng-model="inserted.client" ng-click="getAllClients()" required="required">
+									<option  ng-repeat="client in clients track by client.cin" value="{{client.cin}}">{{client.nom}}</option>
+								</select>
+								
+								<span class="help-block" ng-show="formPromotion.article.$error.required && ( formPromotion.$submitted)" style="color:red" role="alert">
+									vous devez remplir ce champ
+								</span>
+							</div>
+						</div>
+						<div class="control-group">
+						<label class="control-label" for="typeahead">Quantite Min: </label>
+						
+							<div class="controls">
+							
+								<input type="number" ng-model="inserted.qteMin"  name="qteMin"
+									class="span6 typeahead" id="typeahead" data-provide="typeahead"
+									data-items="4" required="required">
+								<span class="help-block" ng-show="formPromotion.qteMin.$error.required && ( formPromotion.$submitted)" style="color:red" role="alert">
+									vous devez remplir ce champ
+								</span>
+							</div>
+						</div>
+						<div class="control-group">
+						<label class="control-label" for="typeahead">Quantite cadeau: </label>
+							<div class="controls">
+							
+								<input type="number" ng-model="inserted.qteCadeau" name="qteCadeau"
+									class="span6 typeahead" id="typeahead" data-provide="typeahead"
+									data-items="4" required="required">
+								<span class="help-block" ng-show="formPromotion.qteCadeau.$error.required && ( formPromotion.$submitted)" style="color:red" role="alert">
+									vous devez remplir ce champ
+								</span>
+							</div>
+						</div>
+						
+						<div class="form-actions">
+							<button type="submit" class="btn btn-primary">Enregistrer
+							</button>
+							<button type="reset" class="btn">Quitter</button>
+						</div>
+					</fieldset>
+				</form>
+
+			</div>
+		</div>
+		<!--/span-->
+
+	</div>
+
+	<!-- end of formulaire -->
+	<!-- start table-->
+	<div class="row-fluid sortable ui-sortable">
+		<div class="box span12">
+			<div class="box-header" data-original-title="">
+				<h2>
+					<i class="halflings-icon white user"></i><span class="break"></span>Liste des taxes
+				</h2>
+			</div>
+			<div class="box-content">
+				<div class="box-content">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Designation</th>
+								<th>Client</th>
+								<th>Quantite min cadeau</th>
+								<th>Quantite offerte</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="promotion in pagePromotions.promotions track by $index">
+								<td class="span6 text-center">{{promotion.article.idArticle}}</td>
+								<td class="span6 text-center">{{promotion.article.designation}}</td>
+								<td class="span6 text-center">{{promotion.client.nom}}</td>
+								<td class="span6 text-center">{{promotion.qteMin}}</td>
+								<td class="span6 text-center">{{promotion.qteCadeau}}</td>
+								<td class="center" class="span6"> 
+									<a class="btn btn-danger"  ng-click="onDelete(promotion.idPromotion)"> <i
+											class="halflings-icon white trash"></i>
+									</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="pagination pagination-centered">
+						<ul>
+							<li style="cursor:pointer;" ng-class="{active:$index==pageCourante}"  ng-repeat="p in pages track by $index">
+								<a ng-click="goToPage($index)">{{$index}}</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/span-->
+
+	</div>
+
+	<!-- end table  -->
+</div>
+</div>

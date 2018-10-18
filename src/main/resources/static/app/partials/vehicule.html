@@ -1,0 +1,56 @@
+<div class="view_contents" ng-controller="VehiculeCtrl">
+	<!-- Widget Menu-->
+	<div class="box blue span12">
+		<div class="row-fluid">
+			<!-- start of formulaire -->
+			<div class="row-fluid sortable ui-sortable">
+				<div class="box span12">
+					<div class="box-header" data-original-title="">
+						<h2>
+							<i class="halflings-icon white edit"></i><span class="break"></span>Modification d&#145;une v&eacute;hicule
+							
+						</h2>
+					</div>
+					<div class="box-content">
+						<form class="form-horizontal" ng-submit="onUpdate()" novalidate="novalidate" name="formVehicule">
+							<input type="hidden" name="id" ng-model="vehicule.immatriculation">
+							<fieldset>
+								<div class="control-group">
+									<label class="control-label" for="libelle" style="color:black;"> carte grise: </label>
+									<div class="controls">
+										<input type="text" ng-model="vehicule.carteGrise"
+											class="span6 typeahead" id="typeahead" name="carteGrise"
+											data-provide="typeahead" data-items="4" required="required">
+										<span class="help-block" ng-show="formVehicule.carteGrise.$error.required && ( formVehicule.$submitted)" style="color:red" role="alert">
+											vous devez remplir ce champ
+										</span>
+									</div>
+								</div>
+								
+								<div class="control-group">
+									<label class="control-label" for="user" style="color:black;">Chauffeur: </label>
+										<div class="controls">
+											<select class="span6 typeahead"   ng-model="vehicule.user.idUser" ng-options="v.idUser as v.nom for v in users" required="required" name="user">
+										</select>
+										<span class="help-block" ng-show="formVehicule.user.$error.required && ( formVehicule.$submitted)" style="color:red" role="alert">
+											vous devez remplir ce champ
+										</span>
+									</div>
+								</div>	
+								<div class="form-actions">
+									<button type="submit" class="btn btn-primary">Enregistrer
+									</button>
+									<button type="reset" class="btn">Quitter</button>
+								</div>
+							</fieldset>
+						</form>
+
+					</div>
+				</div>
+				<!--/span-->
+
+			</div>
+
+		</div>
+	</div>
+</div>		

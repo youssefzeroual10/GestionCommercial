@@ -1,0 +1,87 @@
+<div class="view_contents" ng-controller="ArticlesCtrl">
+<div class="row-fluid">
+	<!-- Widget Menu-->
+	<div class="box blue span12">
+		<div class="box-header">
+			<h2>
+				<i class="halflings-icon white white hand-top"></i>
+				<span class="break"></span>Menu
+			</h2>
+		</div>
+		<div class="box-content">
+			<a href="#/articles" class="quick-button span2"> <i class="icon-table"></i>
+				<p>Stock</p> <span class="notification blue">{{pageArticles.nombreArticles}}</span>
+			</a> 
+			<a href="#/article" class="quick-button span2"> <i class="icon-edit"></i>
+				<p>Ajouter un article</p> 
+			</a>
+			<a href="#/prixarticle" class="quick-button span2"> <i class="icon-money"></i>
+				<p>prix d'article</p>
+			</a>  
+			<a href="#/perimes" class="quick-button span2"> <i class="icon-warning-sign"></i>
+				<p>Articles Bientot perim&eacute;s</p>
+			</a> 
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- END Widget Menu-->
+	<!-- start table-->
+	<div class="row-fluid sortable ui-sortable">
+		<div class="box span12">
+			<div class="box-header" data-original-title="">
+				<h2>
+					<i class="halflings-icon white user"></i><span class="break"></span>Liste des articles
+				</h2>
+			</div>
+			<div class="box-content">
+				<div class="box-content">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Designation</th>
+								<th>Sous Categorie</th>
+								<th>Fournisseur</th>
+								<th>Quantite</th>
+								<th>seuil alert</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="article in pageArticles.articles track by $index">
+								<td class="span6 text-center">
+									<a class="btn btn-info" href="#/mouvements/{{article.idArticle}}">
+									{{article.idArticle}}
+									</a>
+								</td>
+								<td class="span6 text-center">{{article.designation}}</td>
+								<td class="span6 text-center">{{article.sousCategorie.libelle}}</td>
+								<td class="span6 text-center">{{article.fournisseur.nom}}</td>
+								<td class="span6 text-center">{{article.quantite}}</td>
+								<td class="span6 text-center">{{article.seuilAlert}}</td>
+								<td class="center" class="span6"> 
+								<a class="btn btn-info" href="#/article/{{article.idArticle}}"> <i
+										class="halflings-icon white edit"></i>
+								</a> <a class="btn btn-danger"  ng-click="onDelete(article.idArticle)"> <i
+										class="halflings-icon white trash"></i>
+								</a></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="pagination pagination-centered">
+						<ul>
+							<li style="cursor:pointer;" ng-class="{active:$index==pageCourante}"  ng-repeat="p in pages track by $index">
+								<a ng-click="goToPage($index)">{{$index}}</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/span-->
+
+	</div>
+
+	<!-- end table  -->
+</div>
+</div>

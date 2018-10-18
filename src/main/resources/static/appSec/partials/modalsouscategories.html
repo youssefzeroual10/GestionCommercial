@@ -1,0 +1,57 @@
+<div class="modal-header">
+  <h1>Ajouter une sous categorie</h1>
+</div>
+<div class="modal-body">
+	<div class="row-fluid">
+		<!-- start table-->
+		<div class="row-fluid sortable ui-sortable box span12" style="padding:10px" ng-controller="SousCategoriesCtrl">
+				<div class="box span12" style="margin-right: 10px;">
+					<div class="box-header" data-original-title="">
+						<h2>
+							<i class="halflings-icon white edit"></i><span class="break"></span>Ajout
+							des Sous Categories
+						</h2>
+					</div>
+					<div class="box-content">
+						<form class="form-horizontal" ng-submit="onInsert()" name="formSousCategorie" novalidate="novalidate">
+							<fieldset>
+								<div class="control-group">
+									<label class="control-label" for="typeahead">Sous Categorie: </label>
+									<div class="controls">
+										<input type="text" ng-model="inserted.libelle"
+											class="span6 typeahead" id="typeahead"
+											name="libelle"
+											data-provide="typeahead" data-items="4"
+											required="required">
+											<span class="help-block" ng-show="formSousCategorie.libelle.$error.required && ( formSousCategorie.$submitted) " style="color:red" role="alert">
+												vous devez remplir ce champ 
+											</span> 
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="typeahead">sous categorie: </label>
+									<div class="controls"  >
+										<select required="required" name="categorie" ng-model="inserted.categorie" ng-click="getAllCategories()">
+											<option  ng-repeat="categorie in categories track by categorie.idCategorie" value="{{categorie.idCategorie}}">{{categorie.libelle}}</option>
+										</select>
+										<span class="help-block" ng-show="formSousCategorie.categorie.$error.required && ( formSousCategorie.$submitted) " style="color:red" role="alert">
+											vous devez remplir ce champ 
+										</span>
+									</div>
+								</div>
+								<div class="form-actions">
+									<button type="submit" class="btn btn-primary">Enregistrer
+									</button>
+									<button type="reset" class="btn">Quitter</button>
+								</div>
+							</fieldset>
+						</form>
+					</div>
+			</div>
+		</div>
+		<!-- end table  -->
+	</div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

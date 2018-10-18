@@ -1,0 +1,33 @@
+<div class="view_contents" ng-controller="tagsCtrl">
+	<h3>{{title}}</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>titre</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="tag in tags track by $index">
+				<td>{{tag.id}}</td>
+				<td>{{tag.title}}</td>
+				<td>
+					<a href="#/tags/{{tag.id}}">edit</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a ng-click="onDelete(tag.id)" style="cursor: pointer;">remove</a>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">Add new categorie : <br>
+					<form ng-submit="onInsert()" style="display: inline;">
+						Titre :<input type="text" name="title" ng-model="inserted.title"><br>
+						<input type="submit" value="Add" style="width:80px;">
+						<hr>
+						{{msg}}
+					</form> 
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

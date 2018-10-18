@@ -1,0 +1,35 @@
+<div class="view_contents" ng-controller="typesMissionCtrl">
+	<h3>{{title}}</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Title</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="typemission in typesmission track by $index">
+				<td>{{typemission.id}}</td>
+				<td>
+					{{typemission.caption}}
+				</td>
+				<td>
+					<a href="#/types_mission/{{typemission.id}}">edit</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a ng-click="onDelete(typemission.id)" style="cursor: pointer;">remove</a>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">Add new typemission :
+					<form ng-submit="onInsert()" style="display: inline;">
+						<input type="text"  ng-model="inserted.caption">
+						<input type="submit" value="Add" style="width:80px;">
+						<hr>
+						{{msg}}
+					</form> 
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

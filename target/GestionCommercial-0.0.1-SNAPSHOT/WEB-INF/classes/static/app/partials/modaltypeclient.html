@@ -1,0 +1,45 @@
+<div class="modal-header">
+  <h1>Ajouter un type client</h1>
+</div>
+<div ng-controller="TypeClientsCtrl" class="modal-body">
+	<div class="row-fluid">
+		<!-- start table-->
+		<div class="row-fluid sortable ui-sortable box span12" style="padding:10px" ng-controller="TypeClientsCtrl">
+				<div class="box span12" style="margin-right: 10px;">
+					<div class="box-header" data-original-title="">
+						<h2>
+							<i class="halflings-icon white edit"></i><span class="break"></span>
+							Ajoter un type client
+						</h2>
+					</div>
+					<div class="box-content">
+						<form class="form-horizontal" ng-submit="onInsert()" novalidate="novalidate" name="formTypeClient">
+					<fieldset>
+						<div class="control-group">
+							<label class="control-label" for="typeahead">Type Client: </label>
+							<div class="controls">
+								<input type="text" ng-model="inserted.libelle" name="libelle"
+									class="span6 typeahead" id="typeahead" data-provide="typeahead"
+									data-items="4" required="required">
+								<span class="help-block" ng-show="formTypeClient.libelle.$error.required && ( formTypeClient.$submitted)" style="color:red" role="alert">
+									vous devez remplir ce champ
+								</span>	
+							</div>
+						</div>
+						<div class="form-actions">
+							<button type="submit" class="btn btn-primary">Enregistrer
+							</button>
+							<button type="reset" class="btn">Quitter</button>
+						</div>
+					</fieldset>
+				</form>
+					</div>
+			</div>
+		</div>
+		<!-- end table  -->
+	</div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

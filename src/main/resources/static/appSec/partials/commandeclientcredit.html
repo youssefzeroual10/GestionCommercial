@@ -1,0 +1,78 @@
+<div class="view_contents" ng-controller="CommandesClientCreditCtrl">
+<!-- Widget Menu-->
+	<div class="box blue span12">
+		<div class="box-header">
+			<h2>
+				<i class="halflings-icon white white hand-top"></i>
+				<span class="break"></span>Menu
+			</h2>
+		</div>
+		<div class="box-content">
+			<a href="#/clients" class="quick-button span2"> <i class="icon-group"></i>
+				<p>Clients</p> <span class="notification blue">{{countClient}}</span>
+			</a> 
+			<a href="#/client" class="quick-button span2"> <i class="icon-user"></i><i class="icon-plus"></i>
+				<p>Ajouter un client</p> 
+			</a> 
+			<a href="#/typesclient" class="quick-button span2"> <i class="icon-cogs"></i>
+				<p>Type de client</p>
+			</a> 
+			<a href="#/clientsbalaye" class="quick-button span2"> <i class="icon-thumbs-up"></i>
+				<p>Clients balay&eacute;s</p>
+			</a> 
+			<a href="#/clientsnonbalaye" class="quick-button span2"> <i class="icon-thumbs-down"></i>
+				<p>Clients non balay&eacute;s</p>
+			</a> 
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- END Widget Menu-->
+	
+<div class="row-fluid">
+	<!-- start table-->
+	<div class="row-fluid sortable ui-sortable">
+		<div class="box span12">
+			<div class="box-header" data-original-title="">
+				<h2>
+					<i class="halflings-icon white user"></i><span class="break"></span>Liste des commandes d'un client
+				</h2>
+			</div>
+			<div class="box-content">
+				
+				<div class="box-content">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Date Commande</th>
+								<th>montant</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="commande in pageCommandes.commande track by $index">
+								<td class="span6 text-center">
+									<a class="btn btn-info" href="#/getpaiements?idCommande={{commande.idCommande}}">
+									{{commande.idCommande}}</a>
+								</td>
+								<td class="span6 text-center">{{commande.dateCommande}}</td>
+								<td class="span6 text-center">{{commande.montant}}</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="pagination pagination-centered">
+						<ul>
+							<li style="cursor:pointer;" ng-class="{active:$index==pageCourante}"  ng-repeat="p in pages track by $index">
+								<a ng-click="goToPage($index)">{{$index}}</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/span-->
+
+	</div>
+
+	<!-- end table  -->
+</div>
+</div>

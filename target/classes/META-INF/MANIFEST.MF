@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: GestionCommercial
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: zeroual youssef
+Implementation-Vendor-Id: org.manolo
+Build-Jdk: 1.8.0_91
+Implementation-URL: http://projects.spring.io/spring-boot/GestionComme
+ rcial/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

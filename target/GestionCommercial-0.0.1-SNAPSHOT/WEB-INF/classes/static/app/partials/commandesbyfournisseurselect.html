@@ -1,0 +1,84 @@
+<div class="view_contents" ng-controller="CommandesByFournisseursCtrl">
+<div class="row-fluid">
+	<!-- Widget Menu-->
+	<div class="box blue span12">
+		<div class="box-header">
+			<h2>
+				<i class="halflings-icon white white hand-top"></i>
+				<span class="break"></span>Menu
+			</h2>
+		</div>
+		<div class="box-content">
+			<a href="#/fournisseurs" class="quick-button span2"> <i class="icon-group"></i>
+				<p>Fournisseurs</p> <span class="notification blue">{{countFournisseur}}</span>
+			</a> 
+			<a href="#/fournisseurform" class="quick-button span2"> <i class="icon-user"></i><i class="icon-plus"></i>
+				<p>Ajouter un Fournisseur</p> 
+			</a> 
+
+			<a href="#/articlesbyfournisseurselect" class="quick-button span2"> <i class="icon-beaker"></i>
+				<p>Les articles d'un fournisseurs</p>
+			</a> 
+			<a href="#/commandesbyfournisseur" class="quick-button span2"> <i class="icon-barcode"></i>
+				<p>Les commandes d'un fournisseurs</p>
+			</a> 
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- END Widget Menu-->
+
+	<!-- start table-->
+	<div class="row-fluid sortable ui-sortable">
+		<div class="box span12">
+			<div class="box-header" data-original-title="">
+				<h2>
+					<i class="halflings-icon white user"></i><span class="break"></span>Liste des commandes d'un fournisseur
+				</h2>
+			</div>
+			<div class="box-content">
+				<div class="control-group">
+									Fournisseurs: 
+									
+										<select class="span6" name="fournisseur" ng-model="fournisseur"  ng-change="getfournisseur()">
+											<option  ng-repeat="fournisseur in fournisseurs track by fournisseur.idFournisseur " value="{{fournisseur.idFournisseur}}">{{fournisseur.nom}}</option>
+										</select>
+									
+								</div>
+				<div class="box-content">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Date Commande</th>
+								<th>Montant</th>
+								
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="commande in pageCommandes.commande track by $index">
+								<td class="span6 text-center">
+									<a class="btn btn-info" href="#/articlesByCommande/{{commande.idCommande}}">
+									{{commande.idCommande}}
+									</a>
+								</td>
+								<td class="span6 text-center">{{commande.dateCommande}}</td>
+								<td class="span6 text-center">{{commande.montant}}</td>
+								
+							</tr>
+						</tbody>
+					</table>
+					<div class="pagination pagination-centered">
+						<ul>
+							<li style="cursor:pointer;" ng-class="{active:$index==pageCourante}"  ng-repeat="p in pages track by $index">
+								<a ng-click="goToPage($index)">{{$index}}</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/span-->
+	</div>
+	<!-- end table  -->
+</div>
+</div>

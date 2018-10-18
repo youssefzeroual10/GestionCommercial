@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8"/>
+<title>Formulaire d'un article</title>
+   <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script  src="../css/js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script  src="../css/js/bootstrap.min.js"></script>
+	<!-- Angular js -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://code.angularjs.org/1.4.2/angular.js"></script>
+	<script src="https://code.angularjs.org/1.4.2/angular-route.js"></script>
+	<script src="https://code.angularjs.org/1.4.7/angular-resource.min.js"></script>
+	<script type="text/javascript" src="../app/js/app.js"></script>
+	<script type="text/javascript" src="../app/js/config.js"></script>
+	<script type="text/javascript" src="../app/js/services.js"></script>
+	<script type="text/javascript" src="../app/js/filters.js"></script>
+	<script type="text/javascript" src="../app/js/routes.js"></script>
+	<script type="text/javascript" src="../app/js/directives.js"></script>
+	<script type="text/javascript" src="../app/js/controllers.js"></script>
+	
+    <!-- Morris Charts JavaScript -->
+    <script src="../css/js/plugins/morris/raphael.min.js"></script>
+    <script src="../css/js/plugins/morris/morris.min.js"></script>
+    <script src="../css/js/plugins/morris/morris-data.js"></script>
+<!-- Bootstrap Core CSS -->
+    <link  href="../css/bootstrap.min.css" rel="stylesheet"/>
+    <link  href="../css/style.css" rel="stylesheet"/>
+    <!-- Custom CSS -->
+    <link  href="../css/sb-admin.css" rel="stylesheet"/>
+
+    <!-- Morris Charts CSS -->
+    <link  href="../css/plugins/morris.css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="../css/myStyle.css" />
+	<link rel="stylesheet" href="../Simple-Line-Icons-Webfont/simple-line-icons.css">
+	<script src="https://use.fontawesome.com/b4be3c9657.js"></script>
+	
+    <!-- Custom Fonts -->
+    <link href="../css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+</head>
+<body ng-app="ManoloApp">
+<div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">SB Admin</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu message-dropdown">
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt=""/>
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt=""/>
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt=""/>
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-footer">
+                            <a href="#">Read All New Messages</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Articles <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="#/taxes">Liste des articles</a>
+                            </li>
+                            <li>
+                                <a href="#">Ajout des Articles</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
+                    </li>
+                    <li>
+                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
+                    </li>
+                    <li>
+                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
+                    </li>
+                    <li>
+                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="/taxes">Dropdown Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Dropdown Item</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Taxe <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="/taxes">Liste des taxes</a>
+                            </li>
+                            <li>
+                                <a href="/taxes">Ajouter des Taxes</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
+                    </li>
+                    <li>
+                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+        
+        	<div class="container-fluid">
+        	<div ng-view class="view">
+			<div class="col-lg-12" >
+			<div ng-view class="view"></div>
+				<div class="jumbotron" style="margin-top:10px;">
+					<h4 class="page-title dashbord">Tableau de bord </h4>
+					<a href="#"><div class="box" style="background-color:#3598dc;"><i class="fa fa-briefcase fa-5x" aria-hidden="true"></i> <p>Ventes</p></div></a>
+					<a href="#"><div class="box" style="background-color:#e7505a"><i class="fa fa-cart-arrow-down fa-5x" aria-hidden="true"></i> <p>Achats</p></div></a>
+					<a href="#"><div class="box" style="background-color:#32c5d2"><i class="fa fa-home fa-5x" aria-hidden="true"></i><p> Stock</p></div></a>
+					<a href="#"><div class="box" style="background-color:#8E44AD"><i class="fa fa-truck fa-5x" aria-hidden="true"></i><p> Chauffeurs</p></div></a>
+					
+				</div>
+				<div class="well" style="margin-top:10px;">
+					<form class="form-inline">
+						<div class="form-group">
+							<label for="reference">Référence</label>
+							<input type="text" id="reference" ng-model="reference" class="form-control " placeholder="Référence"/>
+						</div>
+						{{reference}}
+						<div class="form-group">
+							<label for="chauffeur">Chauffeur</label>
+							<input type="text" id="chauffeur" class="form-control " placeholder="Chauffeur"/>
+						</div>
+						<div class="form-group">
+							<label for="date-op">Date d'opération</label>
+							<input type="date" id="date-op" class="form-control " placeholder="date d'opération"/>
+						</div>
+						<div class="form-group" >
+							<label for="paiement-op">Paiement</label>
+							<select class="form-control ">
+								<option>Espéce</option>
+								<option>Cache</option>
+								<option>Chéque</option>
+							</select>
+						</div>
+						<div class="form-group" >
+							<button type="submit" class="btn btn-default" >Rechercher</button>
+						</div>	
+					</form>
+				</div>
+				<div class="contente text-left"> 
+				   <div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+						  <tr>
+							<th>#</th>
+							<th>Firstname</th>
+							<th>Lastname</th>
+							<th>Age</th>
+							<th>City</th>
+							<th>Country</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  <tr>
+
+							<td>1</td>
+							<td>Anna</td>
+							<td>Pitt</td>
+							<td>35</td>
+							<td>New York</td>
+							<td>USA</td>
+						  </tr>
+						  <tr>
+							<td>1</td>
+							<td>Anna</td>
+							<td>Pitt</td>
+							<td>35</td>
+							<td>New York</td>
+							<td>USA</td>
+						  </tr>
+						  <tr>
+							<td>1</td>
+							<td>Anna</td>
+							<td>Pitt</td>
+							<td>35</td>
+							<td>New York</td>
+							<td>USA</td>
+						  </tr>
+						  <tr>
+							<td>1</td>
+							<td>Anna</td>
+							<td>Pitt</td>
+							<td>35</td>
+							<td>New York</td>
+							<td>USA</td>
+						  </tr>
+						  <tr>
+							<td>1</td>
+							<td>Anna</td>
+							<td>Pitt</td>
+							<td>35</td>
+							<td>New York</td>
+							<td>USA</td>
+						  </tr>
+						  <tr>
+							<td>1</td>
+							<td>Anna</td>
+							<td>Pitt</td>
+							<td>35</td>
+							<td>New York</td>
+							<td>USA</td>
+						  </tr>
+						  <tr>
+							<td>1</td>
+							<td>Anna</td>
+							<td>Pitt</td>
+							<td>35</td>
+							<td>New York</td>
+							<td>USA</td>
+						  </tr>
+						  <tr>
+							<td>1</td>
+							<td>Anna</td>
+							<td>Pitt</td>
+							<td>35</td>
+							<td>New York</td>
+							<td>USA</td>
+						  </tr>
+						  <tr>
+							<td>1</td>
+							<td>Anna</td>
+							<td>Pitt</td>
+							<td>35</td>
+							<td>New York</td>
+							<td>USA</td>
+						  </tr>
+						  <tr>
+							<td>1</td>
+							<td>Anna</td>
+							<td>Pitt</td>
+							<td>35</td>
+							<td>New York</td>
+							<td>USA</td>
+						  </tr>
+						</tbody>
+					  </table>
+				   </div>
+				   <nav aria-label="Page navigation" class="text-center">
+					  <ul class="pagination">
+						<li>
+						  <a href="#" aria-label="Previous">
+							<span aria-hidden="true">&laquo;</span>
+						  </a>
+						</li>
+						<li><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li>
+						  <a href="#" aria-label="Next">
+							<span aria-hidden="true">&raquo;</span>
+						  </a>
+						</li>
+					  </ul>
+					</nav>
+				</div>	
+				
+			</div>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        	
+        </div>
+        	        <!-- /#page-wrapper -->
+
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel="stylesheet" type="text/css" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/myStyle.css"/>		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+		<script type="text/javascript" src="../js/MyApp.js"></script>		
+	</head>
+	<body ng-app="MyBanqueApp" ng-controller="MyBanqueController" data-ng-init="init()">
+	 {{user.roles}}
+		<div ng-show="user.roles=='ROLE_SOUS_ADMIN'||user.roles=='ROLE_ADMIN'")> 
+			<div class="col-md-6 col-sm-12 col-xs-12">
+				<div class="panel panel-info  spacer">
+					<div class="panel-heading">Compte</div>
+					<div class="panel-body">
+						<form>
+							<div class="form-groupe">
+								<label>Code Compte</label>
+								<input type="text" ng-model="codeCompte"/>
+								<button   ng-click="chargerCompte()">Charger</button>
+							</div>
+						</form>
+					</div>
+					<div class="container error" ng-if="errorMessage!=null">
+						{{errorMessage}}
+					</div>
+				</div>
+			</div>
+		</div>	 
+			<div ng-if="compte!=null">
+				<div class="col-md-6 col-sm-12 col-xs-12">
+					<div class="panel panel-info spacer ">
+						<div class="panel-heading">Etat du compte</div>
+						<div class="panel-body">
+							<div class="form-group">
+								<label>Solde : </label>{{compte.solde}}
+								<label>Date Création : </label>{{compte.dateCreation |date:'yyyy-mm-dd'}}
+							<div ng-if="compte.taux">
+								<label>taux : </label>{{compte.taux}}
+							</div>
+							<div ng-if="compte.decouverte">
+								<label>Découverte : </label>{{compte.decouverte}}
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<div ng-if="compte!=null">
+		<div ng-show="user.roles=='ROLE_ADMIN'")>
+			<div class="col-md-6 col-sm-12 col-xs-12">
+				<div class="panel panel-info spacer">
+					<div class="panel-heading">Opérations</div>
+					<div class="panel-body">
+						<form>
+							<div class="form-group">
+								<label>Versement :</label>
+								<input type="radio" ng-model="operation.type" value="versement">
+								<label>Retrait :</label>
+								<input type="radio" ng-model="operation.type" value="retrait">
+								<label>Versement :</label>
+								<input type="radio" ng-model="operation.type" value="virement">
+							</div>
+							<div class="form-group">
+								<span>
+									<label>Montant :</label>
+									<input type="text" ng-model="operation.montant" size="10"/>
+								</span>
+								<span ng-if="operation.type=='virement'">
+									<label>vers le  compte  :</label>
+									<input type="text" ng-model="operation.codeCompte2" size="10"/>
+								</span>
+							</div>
+							<button class="btn btn-primary" ng-click="saveOperation()">Save</button>
+						</form>
+					</div>
+				</div>
+		
+			</div>
+			</div>
+			<div class="col-md-6 col-sm-12 col-xs-12">
+				<div class="panel panel-info spacer">
+					<div class="panel-heading">Opérations</div>
+					<div class="panel-body">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>NUM</th><th>DATE</th><th>MONTANT</th><th>TYPE</th>
+								</tr>
+							</thead>
+							<tbody >
+								<tr ng-repeat="op in pageOperations.opers">
+									<td>{{op.numeroOperation}}</td>
+									<td>{{op.dateOperation |date:'yyyy-mm-dd'}}</td>
+									<td>{{op.montantOperation}}</td>
+									<td>{{op.type}}</td>	
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="container spacer">
+						<ul class="nav nav-pills">
+							<li class="clickable" ng-class="{active:$index==pageCourante}" ng-repeat="p in pages track by $index">
+								<a ng-click="goToPage($index)">{{$index}}</a>
+							</li>
+						</ul>
+					</div>
+						
+				</div>	
+			</div>
+			</div>	
+	</body>
+</html>
+ -->

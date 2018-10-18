@@ -1,0 +1,88 @@
+<div class="view_contents" ng-controller="FournisseursCtrl">
+<!-- Widget Menu-->
+	<div class="box blue span12">
+		<div class="box-header">
+			<h2>
+				<i class="halflings-icon white white hand-top"></i>
+				<span class="break"></span>Menu
+			</h2>
+		</div>
+		<div class="box-content">
+			<a href="#/fournisseurs" class="quick-button span2"> <i class="icon-group"></i>
+				<p>Fournisseurs</p> <span class="notification blue">{{pageFournisseurs.nombreFournisseurs}}</span>
+			</a> 
+			<a href="#/fournisseurform" class="quick-button span2"> <i class="icon-user"></i><i class="icon-plus"></i>
+				<p>Ajouter un Fournisseur</p> 
+			</a> 
+
+			<a href="#/articlesbyfournisseurselect" class="quick-button span2"> <i class="icon-beaker"></i>
+				<p>Les articles d'un fournisseurs</p>
+			</a> 
+			<a href="#/commandesbyfournisseur" class="quick-button span2"> <i class="icon-barcode"></i>
+				<p>Les commandes d'un fournisseurs</p>
+			</a> 
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- END Widget Menu-->
+	
+	
+<div class="row-fluid">
+	<!-- start table-->
+	<div class="row-fluid sortable ui-sortable">
+		<div class="box span12">
+			<div class="box-header" data-original-title="">
+				<h2>
+					<i class="halflings-icon white user"></i><span class="break"></span>Liste des Fournisseurs
+				</h2>
+			</div>
+			<div class="box-content">
+				<div class="box-content">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Nom</th>
+								<th>Ville</th>
+								<th>Adresse</th>
+								<th>Telephone</th>
+								<th>Email</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="fournisseur in pageFournisseurs.fournisseur track by $index">
+								<td class="span6 text-center">
+									<a class="btn btn-info" href="#/articlesbyfournisseur?idFournisseur={{fournisseur.idFournisseur}}&size=3&page=0">
+									{{fournisseur.idFournisseur}}</a></td>
+								<td class="span6 text-center">{{fournisseur.nom}}</td>
+								<td class="span6 text-center">{{fournisseur.ville}}</td>
+								<td class="span6 text-center">{{fournisseur.adresse}}</td>
+								<td class="span6 text-center">{{fournisseur.telephone}}</td>
+								<td class="span6 text-center">{{fournisseur.email}}</td>
+								<td class="center" class="span6"> 
+								<a class="btn btn-info" href="#/fournisseurs/{{fournisseur.idFournisseur}}"> <i
+										class="halflings-icon white edit"></i>
+								</a> <a class="btn btn-danger"  ng-click="onDelete(fournisseur.idFournisseur)"> <i
+										class="halflings-icon white trash"></i>
+								</a></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="pagination pagination-centered">
+						<ul>
+							<li style="cursor:pointer;" ng-class="{active:$index==pageCourante}"  ng-repeat="p in pages track by $index">
+								<a ng-click="goToPage($index)">{{$index}}</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/span-->
+
+	</div>
+
+	<!-- end table  -->
+</div>
+</div>
